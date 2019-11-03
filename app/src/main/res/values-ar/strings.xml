@@ -1,0 +1,263 @@
+<resources>
+    <string name="app_name">supportingonline egypt</string>
+    <string name="title">supportingonline egypt</string>
+
+    <!--api-->
+
+    <string name="domain" translatable="false">https://www.supportingonline.com/</string>
+    <string name="socket" translatable="false">https://app-47fa2b09-17da-49a5-8b69-e6782bc98fb7.cleverapps.io/</string>
+    <string name="google_client_id">65830180157-2gbulaajaoi5fph05o8qpdahtdqnbqs7.apps.googleusercontent.com</string>
+    <string name="twitter_consumer_key" translatable="false">fJZhFeZ16PXNVnfA0Hny4aiUO</string>
+    <string name="twitter_consumer_secret" translatable="false">COW60lo9r29MqbgAHqwnSECHtCRgWsR0dXd0sAmldNyOLQ7uGH</string>
+    <string name="facebook_app_id" translatable="false">2234539033309162</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb2234539033309162</string>
+
+    <!--titles-->
+
+    <string name="signin_google">الدخول بواسطة جوجل</string>
+    <string name="loading">تحميل</string>
+    <string name="supporting_title">supporting</string>
+    <string name="my_profile">حسابي</string>
+    <string name="my_friends">اصدقائي</string>
+    <string name="languages">اللغة</string>
+    <string name="search">بحث</string>
+    <string name="write_post">كتابة منشور</string>
+    <string name="share">مشاركة</string>
+    <string name="wow">اعجاب</string>
+    <string name="comment">تعليق</string>
+    <string name="your_comment">تعليقك</string>
+    <string name="logout">الخروج</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="surelogout">هل انت متاكد من الخروج من حسابك</string>
+    <string name="no">لا</string>
+    <string name="yes">نعم</string>
+    <string name="fees_wallet">محفظتك</string>
+    <string name="charge_fees_wallet_by_code">شحن المحفظة بواسطة الكود</string>
+    <string name="get">تم</string>
+    <string name="profile">الحساب</string>
+    <string name="chat">دردشة</string>
+    <string name="your_message">رسالتك</string>
+    <string name="bronze">Bronze</string>
+    <string name="silver">Silver</string>
+    <string name="gold">Gold</string>
+    <string name="bronze2_det">Start To get x2</string>
+    <string name="silver2_det">Start To get x4</string>
+    <string name="gold2_det">Start To get x8</string>
+    <string name="bronze3_det">Start To get x3</string>
+    <string name="silver3_det">Start To get x9</string>
+    <string name="gold3_det">Start To get x27</string>
+    <string name="selectoneof">اختار احد هذه الاختيارات</string>
+    <string name="select_language">اختار اللغة</string>
+    <string name="aboutus">About Us</string>
+    <string name="filter">تصفية</string>
+    <string name="confirm_data">تاكيد المعلومات</string>
+    <string name="your_full_name">الاسم بالكامل</string>
+    <string name="your_owen_email">الايميل</string>
+    <string name="your_owen_phone">التليفون</string>
+    <string name="price_of_the_model">ثمن النموذج</string>
+    <string name="promo_code">برومو كود(اختياري)</string>
+    <string name="confirm">تاكيد</string>
+    <string name="accept">قبول</string>
+    <string name="cancel">رفض</string>
+    <string name="join_group_by_code">الانضمام لمجموعة عن طريق الكود</string>
+    <string name="join">انضمام</string>
+    <string name="this_is_your_support_groups">مجموعاتي</string>
+    <string name="follow">متابعة</string>
+    <string name="send_message">ارسال رسالة</string>
+    <string name="add_friend">اضافة صديق</string>
+    <string name="block">حظر</string>
+    <string name="remove_friend">ازالة من الاصدقاء</string>
+    <string name="unfollow">الغاء المتابعة</string>
+    <string name="pay_fees_now">ادفع الرسوم الان</string>
+    <string name="send_the_money">ارسال الاموال</string>
+    <string name="copy">نسخ</string>
+    <string name="posts">المنشورات</string>
+    <string name="photos">الصور</string>
+    <string name="friends">الاصدقاء</string>
+    <string name="chatfriends">شات الاصدقاء</string>
+    <string name="version">Version</string>
+    <string name="sharetheapp">مشاركة التطبيق</string>
+    <string name="successsend">تم ارسال الدفع</string>
+    <string name="contactus">اتصل بنا</string>
+    <string name="contactinfo"></string>
+
+
+    <string-array name="prices">
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+    </string-array>
+
+    <string-array name="banks_name">
+        <item>البنك الاماراتي الاسلامي</item>
+    </string-array>
+
+
+    <string name="title_activity_other_profile_scrolling">OtherProfileScrollingActivity</string>
+    <string name="setting">الاعدادات</string>
+    <string name="name">الاسم</string>
+    <string name="image">الصورة</string>
+    <string name="price">السعر</string>
+    <string name="copied">تم النسخ</string>
+    <string name="email">الايميل</string>
+    <string name="phone">التليفون</string>
+    <string name="about">معلومات</string>
+    <string name="education">التعليم</string>
+    <string name="location">الموقع</string>
+    <string name="submit">تاكيد</string>
+    <string name="money">الاموال</string>
+    <string name="type">النوع</string>
+    <string name="date">التاريخ</string>
+    <string name="statement_of_account">Statement Of Account</string>
+    <string name="payments_options">payments Options</string>
+    <string name="account_number">رقم الحساب</string>
+    <string name="bank_name">اسم البنك</string>
+    <string name="logo">Logo</string>
+    <string name="country">الدولة</string>
+    <string name="currency">العملة</string>
+    <string name="payment_number">رقم الحساب</string>
+    <string name="notvaildcode">كود غير صحيح</string>
+    <string name="successcode">كود صحيح محفظتك الان </string>
+    <string name="stillgoing">جارية</string>
+    <string name="waiting_for_accept">منتظر قبول طلب الصداقة</string>
+    <string name="unBlock">الغاء الحظر</string>
+
+    <string name="remove">حذف</string>
+    <string name="show_receive_image">اظهار صورة الاستلام</string>
+    <string name="work_with_us">Work With Us</string>
+    <string name="to_show_yor_link">لاظهار الكود يجب دفع الرسوم وارسال الاموال</string>
+    <string name="joined_at">انضمام في</string>
+    <string name="my_coworker">My Coworker</string>
+    <string name="read_more">اقرأ المزيد عن</string>
+    <string name="upload">رفع صورة</string>
+    <string name="skip">تخطي</string>
+
+    <string name="mutualfrirends">اشخاص مشتركون</string>
+    <string name="people_you_may_know">اشحاص قد تعرفهم</string>
+    <string name="i_receive">تاكيد استقبال الموال</string>
+    <string name="delete">حذف</string>
+    <string name="no_data">غير متوفر</string>
+    <string name="loading_you_groups">تحميل</string>
+    <string name="watch_video">شاهد الفيديو</string>
+    <string name="friendrequset">طلب اضافة صديق من  </string>
+
+    <string name="aboutusedes">
+      موقع للتواصل الاجتماعي وتكوين الصداقات فيما بين المستخدمين وإنشاء حساب خاص في الموقع بالمجان واستخدام جميع خصائص التواصل الاجتماعي من إضافة الأصدقاء وقبول إضافتهم وإضافة تعليقات وصور وإجراء محادثات بالمجان.\n
+يوفر الموقع خدمة إضافية وهي تنظيم نماذج؛ حيث يقوم بتنظيم نماذج تقديم دعم مالي لمستخدمي الموقع بين بعضهم البعض.\n
+من حق كل مستخدم يكون بداية عدد 2 نموذج لكي يتبادل المستخدمين الاشتراك في نماذج بعضهم البعض.\n
+يقوم الموقع بتنظيم النماذج بين المستخدم وأصدقائه الذين يقومون بعمليات دعم مالي بين بعضهم البعض برسوم خدمة، وذلك موضح في السياسات والشروط والأحكام.\n
+وتوجد لدينا شهادة حقوق ملكية فكرية ورقم إيداع 003224
+وهي معتمدة في 168 دولة باتفاقية بيرن الدولية.\n
+يقدم الموقع 6 نماذج مختلفة، يستطيع المستخدم اختيار أي نموذج او بالاكتفاء بالاشتراك مع أصدقائه وهذا يعنى ان استخدام النماذج اختياري بالكامل حسب رغبة المستخدم.\n
+يحدد المستخدم ثمن النموذج من 4 اختيارات يوفرها الموقع مع أصدقائه الذين يشتركون معه
+النموذج 25 دولار و 50 دولار و 75 دولار و 100 دولار.\n
+يتم التعامل بين الأصدقاء بالعملة المحلية لكل مستخدم بوحدة قياس ثابتة وهي ما يعادل الدولار الأمريكي.\n
+
+
+يمكن للأصدقاء تبادل الاشتراك في نماذج بعضهم البعض بعدد غير محدود، وذلك نظير رسوم خدمة ثابتة لكل مرة يتم الاشتراك فيها بنموذج مهما اختلف نوع النموذج أو قيمته.\n
+تُحصَّل الرسوم مرة واحدة لكل مرة يُستخدم فيها النموذج.\n
+        في النماذج متغيرة الأعضاء لا أحد يبقى في مكانه نهائياً، حيث يخرج كل مستخدم من النموذج عند استلامه مبالغ الدعم من الأصدقاء بشكل نهائي، ويمكنه الانضمام إلى النموذج ذاته مرة أخرى بدفع قيمة مبلغ الدعم للمستخدم المستحق ترتيبياً ودفع الرسوم مرة أخرى، ويظهر له رابط يمكنه من دعوة أصدقاء داعمين له مرة ثانية.\n
+يحصل الموقع رسوم خدمة فقط وقدرها ما يعادل 5 دولارات فقط لا غير، وذلك نظير تنظيم وترتيب وتنسيق عن طريق الأكواد المنظمة لعمليات خروج المستخدم الذي استلم مبلغ الدعم من أصدقائه، ودخول المشتركين وترتيب دخولهم فيما بينهم في النموذج الواحد.\n
+يتم اتفاق المستخدم للنموذج مع أصدقائه الداعمين له في النموذج على طرق إرسال واستلام مبالغ الدعم المالي فيما بينهم بأي طريقة يرغبونها من وسائل إرسال واستلام الأموال المختلفة، كلٌّ حسب دولته، ويتم إرسال واستقبال الأموال بين المستخدمين خارج الموقع بضمانة ومعرفة بعضهم البعض.\n
+ويوفر الموقع إمكانية تنظيمية بين المستخدمين لتأكيد إرسال واستلام مبالغ الدعم.\n
+يوجد الزر I received عند استلام المبلغ وزر Delete عند إخراج مستخدم وإشراك غيره لعدم الدفع، ويوجد في الشرح توضيح كامل في السياسات والشروط والأحكام.\n
+لا علاقة للموقع بعملية إرسال واستلام مبالغ الدعم نهائياً، حيث إن دور الموقع هو عملية التنظيم فحسب.\n
+العمليه التنظيمية هي مسئوليتنا:\n
+من ترتيب وإرسال الأكواد المنظمة لذلك.\n
+وإعطاء إمكانية إظهار صور من إذن الدفع لتأكيد الإرسال.\n
+وإعطاء إمكانية تأكيد استلام المبلغ المالي.\n
+إضافة لإعطاء إمكانية تغيير المستخدم لعدم جدية الطرف الثاني.\n
+وكذلك تنظيم خروج مستلم الدعم المالي من الشراكة مع أصدقائه ودخول من يليه (من عليه الدور) في كل حساب.\n
+يضاف إلى ذلك ضمان إرسال واستقبال مبلغ الدعم للنموذج من الأصدقاء على مسئوليتهم الشخصية، ولا دخل للموقع في ذلك، حيث إن الموقع لا يسلّم تلك الأموال.
+    </string>
+
+
+    <string-array name="models_about">
+        <item>تحصـل على ضعف ثـمــن النموذج مـن الصديقين الداعمين مباشرة (الجيل الأول)
+تخـرج نهائيا من النمـوذج بعد حصولك على ضعف ثـمن النموذج من الصديقين
+ يـمكنك الانضمام مره أخرى بدفع قيمة النمـوذج للصـديق المستحـق الدفـع له
+            يتم إرسال المبالغ المالية بين الاصدقاء بعضهم البعض مباشرة  خارج الموقع بالاتفاق فيما بينهم
+
+يتم التعامل بين الاصدقاء بالعملة المحلية لكل مستخدم بوحدة قياس ثابتة وهى ما يعادل الدولار الامريكى
+
+ يتم تحديد ثمن النموذج من 4 اختيارات وهى 25 دولار , 50 دولار , 75 دولار , 100 دولار
+ باستخدامك النموذج توافق على السياسات والشروط والأحكام
+
+</item>
+
+
+
+        <item>تحصـل على أربعة أضعاف ثـمــن النموذج مـن الأربعة أصدقاء الداعمين (الجيل الثانى).
+تخــرج نهائيـــا مـن النمــوذج بعـــد حصولك على أربعة أضعاف ثـمن النموذج من الأربعة أصدقاء.
+ يـمكنك الانضمام مره أخرى بدفع قيمة النمـوذج للصـديق المستحـق الدفـع له.
+يتم إرسال المبالغ المالية بين الاصدقاء بعضهم البعض مباشرة  خارج الموقع بالاتفاق فيما بينهم.
+يتم التعامل بين الاصدقاء بالعملة المحلية لكل مستخدم بوحدة قياس ثابتة وهى ما يعادل الدولار الامريكى.
+يتم تحديد ثمن النموذج من 4 اختيارات وهى 25 دولار , 50 دولار , 75 دولار , 100 دولار.
+
+
+ باستخدامك النموذج توافق على السياسات والشروط والأحكام
+
+
+</item>
+
+        <item>
+تحصـل على ثمانية أضعاف ثـمــن النموذج مـن الثمانية أصدقاء الداعمين (الجيل الثالث).
+تخــرج نهائيـــا مـن النمــوذج بعـــد حصولك على ثمانية أضعاف ثـمن النموذج من الثمانية أصدقاء الداعمين.
+ يـمكنك الانضمام مره أخرى بدفع قيمة النمـوذج للصـديق المستحـق الدفـع له.
+يتم إرسال المبالغ المالية بين الاصدقاء بعضهم البعض مباشرة  خارج الموقع بالاتفاق فيما بينهم.
+يتم التعامل بين الاصدقاء بالعملة المحلية لكل مستخدم بوحدة قياس ثابتة وهى ما يعادل الدولار الامريكى.
+يتم تحديد ثمن النموذج من 4 اختيارات وهى 25 دولار , 50 دولار , 75 دولار , 100 دولار.
+باستخدامك النموذج توافق على السياسات والشروط والأحكام.
+</item>
+
+
+        <item>تحصـل على ثلاثة أضعاف ثـمــن النموذج مـن الثلاثة أصدقاء الداعمين مباشرة (الجيل الأول)
+تخــرج نهائيـــا مـن النمــوذج بعـــد حصولك على ثلاثة أضعاف ثـمن النموذج من الثلاثة أصدقاء
+يـمكنك الانضمام مره أخرى بدفع قيمة النمـوذج للصـديق المستحـق الدفـع له
+
+يتم إرسال المبالغ المالية بين الاصدقاء بعضهم البعض مباشرة  خارج الموقع بالاتفاق فيما بينهم
+بعضهم البعض مباشرة  خارج الموقع بالاتفاق فيما بينهم لكل مستخدم بوحدة قياس ثابتة وهى ما يعادل الدولار الامريكى
+يتم تحديد ثمن النموذج من 4 اختيارات وهى 25 دولار , 50 دولار , 75 دولار , 100 دولار
+باستخدامك النموذج توافق على السياسات والشروط والأحكام
+
+
+        </item>
+
+        <item>تحصـل على تسعة أضعاف ثـمــن النموذج مـن التسعة أصدقاء الداعمين (الجيل الثانى).
+ تخــرج نهائيـــا مـن النمــوذج بعـــد حصولك على تسعة أضعاف ثـمن النموذج من التسعة أصدقاء.
+يـمكنك الانضمام مره أخرى بدفع قيمة النمـوذج للصـديق المستحـق الدفـع له.
+ يتم إرسال المبالغ المالية بين الاصدقاء بعضهم البعض مباشرة  خارج الموقع بالاتفاق فيما بينهم.
+
+
+
+يتم التعامل بين الاصدقاء بالعملة المحلية لكل مستخدم بوحدة قياس ثابتة وهى ما يعادل الدولار الامريكى.
+ يتم تحديد ثمن النموذج من 4 اختيارات وهى 25 دولار , 50 دولار , 75 دولار , 100 دولار.
+ باستخدامك النموذج توافق على السياسات والشروط والأحكام.
+
+        </item>
+
+        <item>تحصـل على سبعة وعشرون ضعف ثـمــن النموذج مـن السبعة وعشرون صديق الداعمين (الجيل الثالث).
+تخــرج نهائيـــا مـن النمــوذج بعـــد حصولك على سبعة وعشرون ضعف ثـمن النموذج من السبعة وعشرون صديق.
+ يـمكنك الانضمام مره أخرى بدفع قيمة النمـوذج للصـديق المستحـق الدفـع له.
+يتم إرسال المبالغ المالية بين الاصدقاء بعضهم البعض مباشرة  خارج الموقع بالاتفاق فيما بينهم.
+
+
+يتم التعامل بين الاصدقاء بالعملة المحلية لكل مستخدم بوحدة قياس ثابتة وهى ما يعادل الدولار الامريكى.
+يتم تحديد ثمن النموذج من 4 اختيارات وهى 25 دولار , 50 دولار , 75 دولار , 100 دولار.
+ باستخدامك النموذج توافق على السياسات والشروط والأحكام.
+
+
+        </item>
+    </string-array>
+
+
+    <string-array name="model_names">
+        <item>Bronze 2</item>
+        <item>Silver 2</item>
+        <item>Gold 2</item>
+        <item>Bronze 3</item>
+        <item>Silver 3</item>
+        <item>Gold 3</item>
+    </string-array>
+</resources>

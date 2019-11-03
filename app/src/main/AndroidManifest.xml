@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dist="http://schemas.android.com/apk/distribution"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.egyptrefaat.supporting.supportingonline">
+
+    <dist:module dist:instant="true" />
+
+    <!-- uses-permission -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission
+        android:name="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"
+        tools:ignore="ProtectedPermissions" />
+
+    <!-- uses-feature -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.permission.INTERNET"
+        android:required="false" />
+    <uses-feature
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:required="false" />
+    <uses-feature
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:required="false" />
+    <uses-feature
+        android:name="android.permission.RECEIVE_BOOT_COMPLETED"
+        android:required="false" />
+    <uses-feature
+        android:name="android.permission.FOREGROUND_SERVICE"
+        android:required="false" />
+    <uses-feature
+        android:name="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"
+        android:required="false" />
+    <uses-feature
+        android:name="android.permission.ACCESS_COARSE_LOCATION"
+        android:required="false" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning"
+
+        >
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ContactUsActivity" />
+        <activity android:name=".ChatFriendsActivity" />
+        <activity android:name=".VideoViewActivity" />
+
+
+        <activity android:name=".AddRecevieMessageActivity" />
+        <activity
+            android:name=".ConfirmJoinGroupActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <activity android:name=".WorkWithActivity" />
+        <activity
+            android:name=".PaymentsOptionsActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <activity
+            android:name=".StatementActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <activity
+            android:name=".MyprofileActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <activity
+            android:name=".OtherProfileActivity"
+            android:label="@string/title_activity_other_profile_scrolling"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".GroupContentActivity" />
+        <activity
+            android:name=".CreateGroupActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize" /> <!-- service -->
+        <service
+            android:name=".Services.OnNewEmmitService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":MyService"
+            android:stopWithTask="false"
+            tools:ignore="InnerclassSeparator" /> <!-- receiver service -->
+        <receiver
+            android:name=".Services.StartMyServiceAtBootReciever"
+            android:enabled="true"
+            android:exported="true"
+            android:label="StartMyServiceAtBootReceiver"
+            tools:ignore="InnerclassSeparator">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".FriendChatActivity" />
+        <activity
+            android:name=".CommentActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <activity android:name=".SearchActivity" />
+        <activity
+            android:name=".WritePostActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <activity android:name=".AboutUsActivity" />
+        <activity android:name=".MyfriendsActivity" />
+        <activity
+            android:name=".HomeActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".FullImageActivity" />
+
+
+
+        <!-- cropImage -->
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Base.Theme.AppCompat" /> <!-- facebook -->
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:scheme="@string/fb_login_protocol_scheme"
+                    tools:ignore="ManifestResource" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.twitter.sdk.android.core.identity.OAuthActivity" /> <!-- uses-library for android pie -->
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false"
+            tools:ignore="WrongManifestParent" />
+    </application>
+
+</manifest>
