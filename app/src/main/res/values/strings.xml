@@ -5,7 +5,7 @@
     <!--api-->
 
     <string name="domain" translatable="false">https://www.supportingonlineegypt.com/</string>
-    <string name="socket" translatable="false">https://app-47fa2b09-17da-49a5-8b69-e6/</string>
+    <string name="socket" translatable="false">https://app-47fa2b09-17da-49a5-8b69-e6782bc98fb7.cleverapps.io/</string>
     <string name="google_client_id">223028011240-aofvnivm0t1n1af8ueeo0l8d4r8sncmf.apps.googleusercontent.com</string>
     <string name="twitter_consumer_key" translatable="false">fJZhFeZ16PXNVnfA0Hny4aiUO</string>
     <string name="twitter_consumer_secret" translatable="false">COW60lo9r29MqbgAHqwnSECHtCRgWsR0dXd0sAmldNyOLQ7uGH</string>
