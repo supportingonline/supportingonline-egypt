@@ -1,4 +1,4 @@
-package com.egyptrefaat.supporting.supportingonline;
+package com.egyptrefaat.supporting.supportingonline.Fragments;
 
 
 import android.annotation.SuppressLint;
@@ -26,6 +26,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.egyptrefaat.supporting.supportingonline.Adapters.GroupHeaderAdapter;
 import com.egyptrefaat.supporting.supportingonline.Calls.ErrorCall;
 import com.egyptrefaat.supporting.supportingonline.Calls.OnPress;
+import com.egyptrefaat.supporting.supportingonline.ConfirmJoinGroupActivity;
 import com.egyptrefaat.supporting.supportingonline.Custom.ConfirmMoneyToLocal;
 import com.egyptrefaat.supporting.supportingonline.Custom.KeyBoardHiding;
 import com.egyptrefaat.supporting.supportingonline.Custom.MyLocation;
@@ -33,7 +34,13 @@ import com.egyptrefaat.supporting.supportingonline.Custom.MyRequest;
 import com.egyptrefaat.supporting.supportingonline.Custom.MySharedPref;
 import com.egyptrefaat.supporting.supportingonline.Custom.Myvollysinglton;
 import com.egyptrefaat.supporting.supportingonline.Custom.OnErrorRequest;
+import com.egyptrefaat.supporting.supportingonline.GroupContentActivity;
+import com.egyptrefaat.supporting.supportingonline.HomeActivity;
 import com.egyptrefaat.supporting.supportingonline.Models.GroupHeaderModel;
+import com.egyptrefaat.supporting.supportingonline.PaymentsOptionsActivity;
+import com.egyptrefaat.supporting.supportingonline.R;
+import com.egyptrefaat.supporting.supportingonline.StatementActivity;
+import com.egyptrefaat.supporting.supportingonline.WorkWithActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -89,7 +96,7 @@ public class SupportingMainFragment extends Fragment {
         statofaccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(),StatementActivity.class));
+                startActivity(new Intent(getActivity(), StatementActivity.class));
                 getActivity().overridePendingTransition(R.anim.slide_up, R.anim.fadout);
             }
         });
@@ -210,7 +217,7 @@ public class SupportingMainFragment extends Fragment {
                 }else if (arrayList.get(position).getType().equals("4") || arrayList.get(position).getType().equals("5") || arrayList.get(position).getType().equals("6")){
                     countUser=3;
                 }
-                startActivity(new Intent(getActivity(),GroupContentActivity.class).putExtra("count_user",countUser)
+                startActivity(new Intent(getActivity(), GroupContentActivity.class).putExtra("count_user",countUser)
                 .putExtra("id",arrayList.get(position).getId()).putExtra("date",arrayList.get(position).getDetails())
                 .putExtra("type",arrayList.get(position).getType())
                 .putExtra("position",position));
@@ -245,7 +252,7 @@ public class SupportingMainFragment extends Fragment {
     @SuppressLint("SetTextI18n")
     public void refreshTextWallet() {
 
-        textwallet.setText(getResources().getString(R.string.fees_wallet)+"     "+ ConfirmMoneyToLocal.transform(getActivity(), HomeActivity.wallet));
+        textwallet.setText(view.getContext().getResources().getString(R.string.fees_wallet)+"     "+ ConfirmMoneyToLocal.transform(view.getContext(), HomeActivity.wallet));
     }
 
 
@@ -387,7 +394,7 @@ public class SupportingMainFragment extends Fragment {
                         String type=sucObject.getString("type");
                         String price=sucObject.getString("price");
 
-                        startActivity(new Intent(getActivity(),ConfirmJoinGroupActivity.class)
+                        startActivity(new Intent(getActivity(), ConfirmJoinGroupActivity.class)
                         .putExtra("code",code).putExtra("type",type).putExtra("price",price));
                         getActivity().overridePendingTransition(R.anim.slide_up, R.anim.fadout);
                         egroup.setText("");

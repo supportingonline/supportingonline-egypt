@@ -1,17 +1,13 @@
-package com.egyptrefaat.supporting.supportingonline;
+package com.egyptrefaat.supporting.supportingonline.Fragments;
 
 
 import android.app.ActivityOptions;
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -34,14 +30,21 @@ import com.egyptrefaat.supporting.supportingonline.Adapters.PostAdapter;
 import com.egyptrefaat.supporting.supportingonline.Calls.ErrorCall;
 import com.egyptrefaat.supporting.supportingonline.Calls.OnPress;
 import com.egyptrefaat.supporting.supportingonline.Calls.OnPressView;
+import com.egyptrefaat.supporting.supportingonline.CommentActivity;
 import com.egyptrefaat.supporting.supportingonline.Custom.MyRequest;
 import com.egyptrefaat.supporting.supportingonline.Custom.MySizes;
 import com.egyptrefaat.supporting.supportingonline.Custom.Myvollysinglton;
 import com.egyptrefaat.supporting.supportingonline.Custom.OnErrorRequest;
 import com.egyptrefaat.supporting.supportingonline.Custom.SpaceRecycler_V;
-import com.egyptrefaat.supporting.supportingonline.Dialogs.DialogShare;
+import com.egyptrefaat.supporting.supportingonline.Dialogs.DialogShareBottomSheet;
+import com.egyptrefaat.supporting.supportingonline.FullImageActivity;
+import com.egyptrefaat.supporting.supportingonline.HomeActivity;
 import com.egyptrefaat.supporting.supportingonline.Models.PeopleYouMayKnowModel;
 import com.egyptrefaat.supporting.supportingonline.Models.PostModel;
+import com.egyptrefaat.supporting.supportingonline.MyprofileActivity;
+import com.egyptrefaat.supporting.supportingonline.OtherProfileActivity;
+import com.egyptrefaat.supporting.supportingonline.R;
+import com.egyptrefaat.supporting.supportingonline.WritePostActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -135,7 +138,7 @@ public class TimeLineFragment extends Fragment {
             public void onClick(View view, int position) {
                 // image
 
-                Intent intent=new Intent(getActivity(),FullImageActivity.class)
+                Intent intent=new Intent(getActivity(), FullImageActivity.class)
                         .putExtra("is_me",false)
                         .putExtra("image_url", HomeActivity.domain+"imgs/posts/"+ HomeActivity.postsList.get(position).getImage())
                         .putExtra("type","post");
@@ -296,23 +299,22 @@ public class TimeLineFragment extends Fragment {
 
     private void openshare(String id, String text,String image,String type) {
 
-        DialogShare dialog=new DialogShare(getActivity(),text,image,type, new OnPressView() {
-            @Override
-            public void onclick(View view) {
-                share(id);
 
-            }
-        });
-        Window window = dialog.getWindow();
-        WindowManager.LayoutParams wlp = window.getAttributes();
 
-        wlp.gravity = Gravity.BOTTOM;
-        window.setAttributes(wlp);
+        DialogShareBottomSheet addPhotoBottomDialogFragment =
+                new DialogShareBottomSheet(new OnPressView() {
+                    @Override
+                    public void onclick(View view) {
+                        share(id);
+                    }
+                },getActivity(),text,type,image);
+        assert getFragmentManager() != null;
+        addPhotoBottomDialogFragment.show(getFragmentManager(),"");
 
-        dialog.getWindow().getAttributes().windowAnimations= R.style.dialogshareanimation;
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-        dialog.show();
+
     }
+
+
 
     private void share(String id){
         HomeActivity.progressDialog.show();

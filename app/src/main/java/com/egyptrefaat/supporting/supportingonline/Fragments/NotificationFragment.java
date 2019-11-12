@@ -1,4 +1,4 @@
-package com.egyptrefaat.supporting.supportingonline;
+package com.egyptrefaat.supporting.supportingonline.Fragments;
 
 
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+
+import com.egyptrefaat.supporting.supportingonline.R;
 
 
 /**

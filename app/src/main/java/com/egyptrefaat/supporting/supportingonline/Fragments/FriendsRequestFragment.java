@@ -1,4 +1,4 @@
-package com.egyptrefaat.supporting.supportingonline;
+package com.egyptrefaat.supporting.supportingonline.Fragments;
 
 
 import android.content.Intent;
@@ -27,7 +27,10 @@ import com.egyptrefaat.supporting.supportingonline.Custom.MySizes;
 import com.egyptrefaat.supporting.supportingonline.Custom.Myvollysinglton;
 import com.egyptrefaat.supporting.supportingonline.Custom.OnErrorRequest;
 import com.egyptrefaat.supporting.supportingonline.Custom.SpaceRecycler_V;
+import com.egyptrefaat.supporting.supportingonline.HomeActivity;
 import com.egyptrefaat.supporting.supportingonline.Models.FriendRequestModel;
+import com.egyptrefaat.supporting.supportingonline.OtherProfileActivity;
+import com.egyptrefaat.supporting.supportingonline.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;

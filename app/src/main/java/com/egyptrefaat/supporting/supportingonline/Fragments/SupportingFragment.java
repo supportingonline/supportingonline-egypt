@@ -1,4 +1,4 @@
-package com.egyptrefaat.supporting.supportingonline;
+package com.egyptrefaat.supporting.supportingonline.Fragments;
 
 
 import android.os.Bundle;
@@ -11,6 +11,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import com.egyptrefaat.supporting.supportingonline.HomeActivity;
+import com.egyptrefaat.supporting.supportingonline.R;
 
 import net.skoumal.fragmentback.BackFragment;
 

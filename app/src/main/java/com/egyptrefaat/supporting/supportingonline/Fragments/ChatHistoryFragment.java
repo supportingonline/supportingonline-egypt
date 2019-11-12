@@ -1,4 +1,4 @@
-package com.egyptrefaat.supporting.supportingonline;
+package com.egyptrefaat.supporting.supportingonline.Fragments;
 
 
 import android.content.Intent;
@@ -14,6 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.egyptrefaat.supporting.supportingonline.Adapters.ChatHistoryAdapter;
 import com.egyptrefaat.supporting.supportingonline.Calls.OnPress;
+import com.egyptrefaat.supporting.supportingonline.FriendChatActivity;
+import com.egyptrefaat.supporting.supportingonline.HomeActivity;
+import com.egyptrefaat.supporting.supportingonline.R;
 
 
 /**
@@ -43,7 +46,7 @@ public class ChatHistoryFragment extends Fragment {
                 HomeActivity.chatHistoryList.get(position).setReade(true);
                 adapter.notifyItemChanged(position);
 
-                startActivity(new Intent(getActivity(),FriendChatActivity.class)
+                startActivity(new Intent(getActivity(), FriendChatActivity.class)
                 .putExtra("id",HomeActivity.chatHistoryList.get(position).getUserId())
                         .putExtra("name",HomeActivity.chatHistoryList.get(position).getUserName())
                         .putExtra("image",HomeActivity.chatHistoryList.get(position).getUserImage()));

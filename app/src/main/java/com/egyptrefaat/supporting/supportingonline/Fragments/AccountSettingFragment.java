@@ -1,4 +1,4 @@
-package com.egyptrefaat.supporting.supportingonline;
+package com.egyptrefaat.supporting.supportingonline.Fragments;
 
 
 import android.app.ProgressDialog;
@@ -20,6 +20,9 @@ import com.egyptrefaat.supporting.supportingonline.Custom.MyRequest;
 import com.egyptrefaat.supporting.supportingonline.Custom.MySharedPref;
 import com.egyptrefaat.supporting.supportingonline.Custom.Myvollysinglton;
 import com.egyptrefaat.supporting.supportingonline.Custom.OnErrorRequest;
+import com.egyptrefaat.supporting.supportingonline.HomeActivity;
+import com.egyptrefaat.supporting.supportingonline.MyprofileActivity;
+import com.egyptrefaat.supporting.supportingonline.R;
 import com.egyptrefaat.supporting.supportingonline.Value.MyData;
 import com.egyptrefaat.supporting.supportingonline.Views.MyEditText;
 

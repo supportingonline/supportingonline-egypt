@@ -36,6 +36,8 @@ import com.egyptrefaat.supporting.supportingonline.Custom.MySizes;
 import com.egyptrefaat.supporting.supportingonline.Custom.Myvollysinglton;
 import com.egyptrefaat.supporting.supportingonline.Custom.OnErrorRequest;
 import com.egyptrefaat.supporting.supportingonline.Custom.SpaceRecycler_V;
+import com.egyptrefaat.supporting.supportingonline.Fragments.FriendsFragment;
+import com.egyptrefaat.supporting.supportingonline.Fragments.ImagesFragment;
 import com.egyptrefaat.supporting.supportingonline.Models.AboutModel;
 import com.egyptrefaat.supporting.supportingonline.Models.InfoModel;
 import com.egyptrefaat.supporting.supportingonline.Models.SearchModel;

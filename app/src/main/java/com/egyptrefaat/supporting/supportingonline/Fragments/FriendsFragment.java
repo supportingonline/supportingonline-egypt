@@ -1,4 +1,4 @@
-package com.egyptrefaat.supporting.supportingonline;
+package com.egyptrefaat.supporting.supportingonline.Fragments;
 
 
 import android.annotation.SuppressLint;
@@ -18,7 +18,11 @@ import com.egyptrefaat.supporting.supportingonline.Adapters.SearchAdapter;
 import com.egyptrefaat.supporting.supportingonline.Calls.OnPress;
 import com.egyptrefaat.supporting.supportingonline.Custom.MySizes;
 import com.egyptrefaat.supporting.supportingonline.Custom.SpaceRecycler_V;
+import com.egyptrefaat.supporting.supportingonline.HomeActivity;
 import com.egyptrefaat.supporting.supportingonline.Models.SearchModel;
+import com.egyptrefaat.supporting.supportingonline.MyprofileActivity;
+import com.egyptrefaat.supporting.supportingonline.OtherProfileActivity;
+import com.egyptrefaat.supporting.supportingonline.R;
 
 import java.util.ArrayList;
 

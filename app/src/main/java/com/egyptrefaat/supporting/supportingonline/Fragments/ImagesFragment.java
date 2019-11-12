@@ -1,4 +1,4 @@
-package com.egyptrefaat.supporting.supportingonline;
+package com.egyptrefaat.supporting.supportingonline.Fragments;
 
 
 import android.app.ActivityOptions;
@@ -21,6 +21,10 @@ import com.egyptrefaat.supporting.supportingonline.Calls.OnPress;
 import com.egyptrefaat.supporting.supportingonline.Custom.MyRequest;
 import com.egyptrefaat.supporting.supportingonline.Custom.Myvollysinglton;
 import com.egyptrefaat.supporting.supportingonline.Custom.OnErrorRequest;
+import com.egyptrefaat.supporting.supportingonline.FullImageActivity;
+import com.egyptrefaat.supporting.supportingonline.MyprofileActivity;
+import com.egyptrefaat.supporting.supportingonline.OtherProfileActivity;
+import com.egyptrefaat.supporting.supportingonline.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -65,7 +69,7 @@ public class ImagesFragment extends Fragment {
         adapter=new ImagesAdapter(arrayList, getActivity(), new OnPress() {
             @Override
             public void onClick(View view, int position) {
-                Intent intent=new Intent(getActivity(),FullImageActivity.class)
+                Intent intent=new Intent(getActivity(), FullImageActivity.class)
                         .putExtra("is_me",false)
                         .putExtra("image_url",domain+"imgs/posts/"+arrayList.get(position)).putExtra("type","post");
                 ActivityOptions options = ActivityOptions
