@@ -22,7 +22,7 @@ public class RestartMyService {
                 @RequiresApi(api = Build.VERSION_CODES.O)
                 @Override
                 public void run() {
-               //  ContextCompat.startForegroundService( context,new Intent(context, OnNewEmmitService.class));
+               ContextCompat.startForegroundService( context,new Intent(context, OnNewEmmitService.class));
                    // context.startService(new Intent(context, OnNewEmmitService.class));
                 }
             });

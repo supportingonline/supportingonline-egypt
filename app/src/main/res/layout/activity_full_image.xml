@@ -9,7 +9,7 @@
     style="@style/AppTheme2"
     >
 
-    <com.egypt.supporting.supportingonline.Views.TouchImageView
+    <com.egyptrefaat.supporting.supportingonline.Views.TouchImageView
         android:id="@+id/full_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
