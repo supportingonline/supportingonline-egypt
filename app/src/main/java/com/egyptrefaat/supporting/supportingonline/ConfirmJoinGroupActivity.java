@@ -3,6 +3,7 @@ package com.egyptrefaat.supporting.supportingonline;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -135,6 +136,9 @@ public class ConfirmJoinGroupActivity extends AppCompatActivity {
                                 .putExtra("first_time",true));
                         overridePendingTransition(R.anim.slide_up, R.anim.fadout);
                         finish();
+                    }else {
+                        Log.e("errrrr",object.getString("message"));
+                        Toast.makeText(ConfirmJoinGroupActivity.this, object.getString("message"), Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

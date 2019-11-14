@@ -131,7 +131,8 @@ public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.GroupHolder>
                 holder.name.setVisibility(View.GONE);
               
                 holder.imageView.setBackground(context.getDrawable(R.drawable.wait));
-            } else {
+            }
+            else  {
                 // data
 
                 // name

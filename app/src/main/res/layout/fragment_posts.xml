@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".PostsFragment"
-    android:paddingBottom="@dimen/_5sdp"
+    android:paddingBottom="@dimen/_10sdp"
+    android:id="@+id/posts_scroll"
     >
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/posts_scroll"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
 
 
@@ -43,6 +40,6 @@
 
             />
     </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
 
-</FrameLayout>
+
+</androidx.core.widget.NestedScrollView>

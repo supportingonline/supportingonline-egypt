@@ -374,9 +374,9 @@ public class GroupContentActivity extends AppCompatActivity  {
                 progressDialog.dismiss();
                 Log.i("group",response);
 
-                    init1();
+                   /* init1();
                     init2();
-                    init3();
+                    init3();*/
                     arrayListLayer.clear();
                     adapterLayer.notifyDataSetChanged();
 
@@ -574,6 +574,7 @@ public class GroupContentActivity extends AppCompatActivity  {
                 }
 
 
+
                 if (object.has("children")){
                     JSONArray childrenArray=object.getJSONArray("children");
                     if (childrenArray.length()>0){
@@ -585,6 +586,7 @@ public class GroupContentActivity extends AppCompatActivity  {
                 // first layer
                 GroupModel model=listGroup.get(i);
                 model.setHasdata(true);
+                model.setHasChildern(true);
                 model.setId(id);
                 model.setImage(image);
                 model.setName(name);
@@ -593,7 +595,7 @@ public class GroupContentActivity extends AppCompatActivity  {
                 model.setReceive(receive);
                 model.setDelete(delete);
                 model.setReceiveImage(receive_image);
-                model.setHasChildern(true);
+
                 groupAdapter.notifyDataSetChanged();
 
                 setWatit(whereIam,listGroup2,groupAdapter2);
