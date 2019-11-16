@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -34,11 +36,22 @@ public class ChatFriendsActivity extends AppCompatActivity {
     private ChatHistoryAdapter adapter;
     private ArrayList<ChatHistroyModel> arrayList=new ArrayList<>();
 
+    private TextView textNoData;
+    private ProgressBar progressBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_friends);
+
+        // no data
+        textNoData=(TextView)findViewById(R.id.chatfriends_nodata);
+        textNoData.setVisibility(View.GONE);
+
+        // progress
+        progressBar=(ProgressBar)findViewById(R.id.chatfriends_progress);
+        progressBar.setVisibility(View.GONE);
 
         // recycler
         arrayList.clear();
@@ -64,6 +77,7 @@ public class ChatFriendsActivity extends AppCompatActivity {
     }
 
     private void loadchatHistory() {
+        progressBar.setVisibility(View.VISIBLE);
         String url= HomeActivity.domain+"api/messages";
         StringRequest request=new MyRequest(HomeActivity.token, 1, url, new Response.Listener<String>() {
             @Override
@@ -106,7 +120,13 @@ public class ChatFriendsActivity extends AppCompatActivity {
                         }
                     });
                    adapter.notifyDataSetChanged();
+                    progressBar.setVisibility(View.INVISIBLE);
 
+                   if (arrayList.size()==0){
+                       textNoData.setVisibility(View.VISIBLE);
+                   }else {
+                       textNoData.setVisibility(View.GONE);
+                   }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -116,6 +136,8 @@ public class ChatFriendsActivity extends AppCompatActivity {
         },new OnErrorRequest(ChatFriendsActivity.this, new ErrorCall() {
             @Override
             public void OnBack() {
+
+                progressBar.setVisibility(View.INVISIBLE);
 
             }
         }));

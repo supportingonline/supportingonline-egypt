@@ -64,8 +64,8 @@ public class AboutUsActivity  extends AppCompatActivity {
     private void loadUs(){
         String[] titles=getResources().getStringArray(R.array.model_names);
         String[] detalises=getResources().getStringArray(R.array.models_about);
-        //  only first 3 is real
-        String[] urlsVideos={"Qosp2WBSjZc","yV0Bq7eqr4g","r586jYp8HIo","Cm6uvfMNnY0","tZ89uI-UIbU","vjSjEJnItW4"};
+        //  exept 2gold
+        String[] urlsVideos={"cecaTJbOO2s","I7A-RavCF9Y","r586jYp8HIo","NnpU6Dxh9RM","DiNO1CN_2is","8NIv_H3NCb8"};
 
         for (int i =0 ;i<titles.length;i++){
             AboutUsModel model=new AboutUsModel();

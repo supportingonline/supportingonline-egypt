@@ -14,7 +14,7 @@
 
     <!--titles-->
 
-    <string name="signin_google">Sign In Google</string>
+    <string name="signin_google">Log In With Gmail</string>
     <string name="loading">Loading</string>
     <string name="supporting_title">supporting</string>
     <string name="my_profile">My Profile</string>
@@ -175,6 +175,7 @@ It also provides a service to organize financial support among users of the site
 -The I received button on receipt of the amount and the Delete button when a user is removed and others are not included for non-payment. The explanation contains full clarification in the policies, terms and conditions.\n\n
 
     </string>
+    <string name="you_don_t_have_friend_yet">you don\'t have friends yet</string>
     The site has no relation to the process of sending and receiving support payments permanently, since the role of the site is the process of organization only.
     Organizational process is our responsibility:
     From arranging and sending organized codes for it.

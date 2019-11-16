@@ -2,10 +2,12 @@ package com.egyptrefaat.supporting.supportingonline.Custom;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import com.egyptrefaat.supporting.supportingonline.LoginActivity;
 import com.egyptrefaat.supporting.supportingonline.R;
 import com.facebook.login.LoginManager;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -34,14 +36,14 @@ public class MyUtils {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     MySharedPref.setdata(context,"token","");
-                    ((Activity)context).finishAffinity();
+                    gotoLogin(context);
 
                 }
             });
         }else if (provider.equals("facebook")){
             LoginManager.getInstance().logOut();
             MySharedPref.setdata(context,"token","");
-            ((Activity)context).finishAffinity();
+            gotoLogin(context);
 
         }else if (provider.equals("twitter")){
             // twitter
@@ -55,10 +57,14 @@ public class MyUtils {
             Twitter.initialize(config);
             TwitterCore.getInstance().getSessionManager().clearActiveSession();
             MySharedPref.setdata(context,"token","");
-            ((Activity)context).finishAffinity();
+            gotoLogin(context);
 
         }
     }
 
 
+    private  static  void gotoLogin(Context context){
+        ((Activity)context).finishAffinity();
+        context.startActivity(new Intent(context, LoginActivity.class));
+    }
 }

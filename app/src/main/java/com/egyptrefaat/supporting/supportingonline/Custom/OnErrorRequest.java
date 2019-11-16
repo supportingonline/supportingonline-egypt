@@ -36,6 +36,7 @@ public class OnErrorRequest implements Response.ErrorListener {
                  Log.i("main_error",body);
                 if (object.has("message")) {
                     if (object.getString("message").equals("Unauthenticated.")){
+                        Toast.makeText(context, "Session Time Out", Toast.LENGTH_SHORT).show();
                          MySharedPref.setdata(context, "token", "");
                          MyUtils.logoutprovider(context);
                     }else {

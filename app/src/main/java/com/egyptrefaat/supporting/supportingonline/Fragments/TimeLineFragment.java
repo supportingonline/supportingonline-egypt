@@ -63,6 +63,7 @@ public class TimeLineFragment extends Fragment {
 
 
     private EditText editText;
+    private TextView textNoData;
     private String nexturl,lasturl;
     private int c=0;
 
@@ -87,6 +88,10 @@ public class TimeLineFragment extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_time_line, container, false);
 
+
+        // no data
+        textNoData=(TextView)view.findViewById(R.id.f_timeline_nodata);
+        textNoData.setVisibility(View.GONE);
 
 
 
@@ -421,15 +426,23 @@ public class TimeLineFragment extends Fragment {
 
                             HomeActivity.postsList.add(model);
                             adapter.notifyDataSetChanged();
-                            // progress
-                            progressBar.setVisibility(View.GONE);
-                            swipe.setRefreshing(false);
+
 
                         }
                     }
 
+
                 } catch (JSONException e) {
                     e.printStackTrace();
+                }
+
+                // progress
+                progressBar.setVisibility(View.GONE);
+                swipe.setRefreshing(false);
+                if (HomeActivity.postsList.size()==0){
+                    textNoData.setVisibility(View.VISIBLE);
+                }else {
+                    textNoData.setVisibility(View.GONE);
                 }
 
             }

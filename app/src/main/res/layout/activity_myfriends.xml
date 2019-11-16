@@ -33,4 +33,23 @@
         android:layout_height="wrap_content"
         android:nestedScrollingEnabled="false"/>
 
+    <TextView
+        android:id="@+id/myfriends_nodata"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/you_don_t_have_friend_yet"
+        android:textAlignment="center"
+        android:fontFamily="@font/flor"
+        android:textColor="@color/black"/>
+
+
+    <ProgressBar
+        android:id="@+id/myfriends_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/_2sdp"
+        style="?android:attr/progressBarStyleSmall"
+        />
+
 </LinearLayout>

@@ -97,7 +97,11 @@ public class FriendsFragment extends Fragment {
 
         // textview
         textView=(TextView)view.findViewById(R.id.friends_text);
-        textView.setText(String.valueOf(arrayList.size())+ " "+getActivity().getResources().getString(R.string.friends));
+        if (arrayList.size()>0) {
+            textView.setText(String.valueOf(arrayList.size()) + " " + getActivity().getResources().getString(R.string.friends));
+        }else {
+            textView.setText(getActivity().getResources().getString(R.string.you_don_t_have_friend_yet));
+        }
 
         return view;
     }

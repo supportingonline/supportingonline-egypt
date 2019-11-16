@@ -67,10 +67,10 @@ public class LoginActivity extends AppCompatActivity {
     private GoogleSignInClient mGoogleSignInClient;
     private SignInButton signInButton;
 
-    private TwitterLoginButton logintwitter;
+  //  private TwitterLoginButton logintwitter;
 
-    private CallbackManager callbackManager = CallbackManager.Factory.create();
-    private LoginButton loginfacebook;
+   // private CallbackManager callbackManager = CallbackManager.Factory.create();
+   // private LoginButton loginfacebook;
     private static final String EMAIL = "email";
 
 
@@ -79,14 +79,14 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         // twitter
-        TwitterConfig config = new TwitterConfig.Builder(this)
+     /*   TwitterConfig config = new TwitterConfig.Builder(this)
                 .logger(new DefaultLogger(Log.DEBUG))
                 .twitterAuthConfig(new TwitterAuthConfig
                         (getResources().getString(R.string.twitter_consumer_key)
                                 , getResources().getString(R.string.twitter_consumer_secret)))
                 .debug(true)
                 .build();
-        Twitter.initialize(config);
+        Twitter.initialize(config);*/
 
         setContentView(R.layout.activity_login);
 
@@ -125,6 +125,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
+/*
 
         // twitter
         final String[] twname = new String[1];
@@ -139,8 +140,10 @@ public class LoginActivity extends AppCompatActivity {
 
                 TwitterSession session = TwitterCore.getInstance().getSessionManager().getActiveSession();
                 TwitterAuthToken authToken = session.getAuthToken();
-                /*String token = authToken.token;
-                String secret = authToken.secret;*/
+                */
+/*String token = authToken.token;
+                String secret = authToken.secret;*//*
+
                 twname[0] =session.getUserName();
                 tid[0] =String.valueOf(session.getUserId());
 
@@ -260,6 +263,7 @@ public class LoginActivity extends AppCompatActivity {
                 // App code
             }
         });
+*/
 
 
     }
@@ -272,12 +276,12 @@ public class LoginActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        // facebook
-        callbackManager.onActivityResult(requestCode, resultCode, data);
+      /*  // facebook
+        callbackManager.onActivityResult(requestCode, resultCode, data);*/
 
 
-        // twitter
-        logintwitter.onActivityResult(requestCode, resultCode, data);
+       /* // twitter
+        logintwitter.onActivityResult(requestCode, resultCode, data);*/
 
         if (p.equals("g")) {
 

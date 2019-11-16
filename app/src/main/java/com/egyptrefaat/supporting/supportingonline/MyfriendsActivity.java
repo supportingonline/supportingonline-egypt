@@ -11,6 +11,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -44,8 +46,12 @@ public class MyfriendsActivity extends AppCompatActivity {
     private ArrayList<SearchModel> arrayList,fullList;
 
     private EditText editText;
+    private TextView textNoData;
+    private ProgressBar progressBar;
 
     private String domain,token;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +62,14 @@ public class MyfriendsActivity extends AppCompatActivity {
         // domain and token
         domain=getResources().getString(R.string.domain);
         token= MySharedPref.getdata(this,"token");
+
+        // no data
+        textNoData=(TextView)findViewById(R.id.myfriends_nodata);
+        textNoData.setVisibility(View.GONE);
+
+        // progress
+        progressBar=(ProgressBar)findViewById(R.id.myfriends_progress);
+        progressBar.setVisibility(View.GONE);
 
         // recycler
         arrayList=new ArrayList<>();
@@ -109,6 +123,7 @@ public class MyfriendsActivity extends AppCompatActivity {
     }
 
     private void loadFriends() {
+        progressBar.setVisibility(View.VISIBLE);
         String url=domain+"api/profile";
 
         StringRequest request=new MyRequest(token, 1, url, new Response.Listener<String>() {
@@ -133,6 +148,16 @@ public class MyfriendsActivity extends AppCompatActivity {
                     }
                     fullList.addAll(arrayList);
                     editText.setClickable(true);
+
+
+                    progressBar.setVisibility(View.INVISIBLE);
+
+                    if (arrayList.size()==0){
+                        textNoData.setVisibility(View.VISIBLE);
+                    }else {
+                        textNoData.setVisibility(View.GONE);
+                    }
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
