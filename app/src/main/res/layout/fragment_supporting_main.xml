@@ -89,8 +89,8 @@
            android:text="@string/statement_of_account"
            android:textColor="@color/blue"
            android:textAlignment="center"
-
            android:textSize="@dimen/_15sdp"
+           android:alpha="0.5"
            />
 
        <TextView
@@ -103,6 +103,7 @@
            android:layout_marginBottom="@dimen/_10sdp"
            android:textSize="@dimen/_15sdp"
            android:layout_marginTop="@dimen/_3sdp"
+           android:alpha="0.5"
            />
 
        <Button

@@ -49,6 +49,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 
 /**
@@ -96,8 +97,8 @@ public class SupportingMainFragment extends Fragment {
         statofaccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), StatementActivity.class));
-                getActivity().overridePendingTransition(R.anim.slide_up, R.anim.fadout);
+              //  startActivity(new Intent(getActivity(), StatementActivity.class));
+               // getActivity().overridePendingTransition(R.anim.slide_up, R.anim.fadout);
             }
         });
 
@@ -106,8 +107,8 @@ public class SupportingMainFragment extends Fragment {
         paymentsOptions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), PaymentsOptionsActivity.class));
-                getActivity().overridePendingTransition(R.anim.slide_up, R.anim.fadout);
+              //  startActivity(new Intent(getActivity(), PaymentsOptionsActivity.class));
+               // getActivity().overridePendingTransition(R.anim.slide_up, R.anim.fadout);
             }
         });
 
@@ -142,7 +143,7 @@ public class SupportingMainFragment extends Fragment {
 
                 String code=ecode.getText().toString().trim();
                 if (code.length()>4){
-                    KeyBoardHiding.hide(v,getActivity());
+                    KeyBoardHiding.hide(v,v.getContext());
                     chargeMoneyByCode(code);
                 }
 
@@ -152,13 +153,13 @@ public class SupportingMainFragment extends Fragment {
 
         // btn work
         btn_work=(Button)view.findViewById(R.id.sup_work_btn);
-        if (MySharedPref.isWorkWithUs(getActivity())){
+        if (MySharedPref.isWorkWithUs(view.getContext())){
            // btn_work.setVisibility(View.VISIBLE);
             btn_work.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     startActivity(new Intent(getActivity(), WorkWithActivity.class));
-                    getActivity().overridePendingTransition(R.anim.slide_from_righ, R.anim.slide_to_left);
+                    Objects.requireNonNull(getActivity()).overridePendingTransition(R.anim.slide_from_righ, R.anim.slide_to_left);
                 }
             });
         }else {
@@ -195,7 +196,7 @@ public class SupportingMainFragment extends Fragment {
             public void onClick(View v) {
                 String code=egroup.getText().toString().trim();
                 if (code.length()>4){
-                    KeyBoardHiding.hide(v,getActivity());
+                    KeyBoardHiding.hide(v,view.getContext());
                     joinGroupByCode(code);
                 }
 
@@ -221,7 +222,7 @@ public class SupportingMainFragment extends Fragment {
                 .putExtra("id",arrayList.get(position).getId()).putExtra("date",arrayList.get(position).getDetails())
                 .putExtra("type",arrayList.get(position).getType())
                 .putExtra("position",position));
-                getActivity().overridePendingTransition(R.anim.slide_up, R.anim.fadout);
+                Objects.requireNonNull(getActivity()).overridePendingTransition(R.anim.slide_up, R.anim.fadout);
 
             }
         });
@@ -345,7 +346,7 @@ public class SupportingMainFragment extends Fragment {
                     }else {
 
                         // success code
-                        MySharedPref.setdata(getActivity(),"wallet",s);
+                        MySharedPref.setdata(view.getContext(),"wallet",s);
                         textwallet.setText(getActivity().getResources().getString(R.string.fees_wallet)+"     "+ ConfirmMoneyToLocal.transform(getActivity(),s));
                         Toast.makeText(getActivity(), textwallet.getText(), Toast.LENGTH_SHORT).show();
                         ecode.setText("");

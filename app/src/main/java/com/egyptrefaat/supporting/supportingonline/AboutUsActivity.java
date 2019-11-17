@@ -65,7 +65,7 @@ public class AboutUsActivity  extends AppCompatActivity {
         String[] titles=getResources().getStringArray(R.array.model_names);
         String[] detalises=getResources().getStringArray(R.array.models_about);
         //  exept 2gold
-        String[] urlsVideos={"cecaTJbOO2s","I7A-RavCF9Y","r586jYp8HIo","NnpU6Dxh9RM","DiNO1CN_2is","8NIv_H3NCb8"};
+        String[] urlsVideos={"cecaTJbOO2s","I7A-RavCF9Y","ebOqkZu8T-I","NnpU6Dxh9RM","DiNO1CN_2is","8NIv_H3NCb8"};
 
         for (int i =0 ;i<titles.length;i++){
             AboutUsModel model=new AboutUsModel();

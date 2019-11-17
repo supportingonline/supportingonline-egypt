@@ -7,8 +7,8 @@ android {
         applicationId "com.egyptrefaat.supporting.supportingonline"
         minSdkVersion 22
         targetSdkVersion 29
-        versionCode 20
-        versionName "2.0.10"
+        versionCode 22
+        versionName "2.0.12"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
