@@ -42,29 +42,21 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatHolder> {
     @Override
     public void onBindViewHolder(@NonNull ChatHolder holder, int position) {
 
-        boolean isMe=arrayList.get(position).isMe();
+        ChatModel model=arrayList.get(position);
+
+        boolean isMe=model.isMe();
 
 
         if (isMe){
             holder.other.setVisibility(View.GONE);
             holder.me.setVisibility(View.VISIBLE);
-            holder.me.setText(Html.fromHtml(arrayList.get(position).getText(), new URLImageParser(holder.me, context), new Html.TagHandler() {
-                @Override
-                public void handleTag(boolean b, String s, Editable editable, XMLReader xmlReader) {
-
-                }
-            }));
+            holder.me.setText(Html.fromHtml(model.getText()));
            // holder.me.setText(arrayList.get(position).getText());
         }else {
             holder.me.setVisibility(View.GONE);
             holder.other.setVisibility(View.VISIBLE);
            // holder.other.setText(arrayList.get(position).getText());
-            holder.other.setText(Html.fromHtml(arrayList.get(position).getText(), new URLImageParser(holder.other, context), new Html.TagHandler() {
-                @Override
-                public void handleTag(boolean b, String s, Editable editable, XMLReader xmlReader) {
-
-                }
-            }));
+            holder.other.setText(Html.fromHtml(model.getText()));
         }
 
 

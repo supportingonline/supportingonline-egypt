@@ -58,8 +58,7 @@ import java.util.Map;
 
 public class WritePostActivity extends AppCompatActivity {
 
-    private ImageView imagecapture,imageEmoji,imageview,cancelimage;
-    private ExpandableRelativeLayout exp;
+    private ImageView imagecapture,imageview,cancelimage;
     private EditText editText;
     private String type="text";
     private Bitmap bitmap;
@@ -67,11 +66,8 @@ public class WritePostActivity extends AppCompatActivity {
     private Button button;
     private String domain,token;
     private ProgressDialog prog;
-    private RecyclerView recyclerView;
-    private GridLayoutManager manager;
-    private ArrayList<EmojiModel> arrayList;
     private EmojiAdapter adapter;
-    private ArrayList<String> myempjelist=new ArrayList<>();
+
 
 
 
@@ -103,6 +99,7 @@ public class WritePostActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 String ss= charSequence.toString().trim();
+
                 if (ss.length()>0){
                   button.setAlpha(1f);
                 }else {
@@ -127,77 +124,27 @@ public class WritePostActivity extends AppCompatActivity {
             }
         });
 
-        // expandle
-        exp=(ExpandableRelativeLayout)findViewById(R.id.write_exp);
-       // exp.collapse();
-
-        // image emoji
-        imageEmoji=(ImageView)findViewById(R.id.write_emoji);
-        imageEmoji.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                exp.toggle();
-            }
-        });
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String s=editText.getText().toString().trim();
 
-                StringBuilder builder=new StringBuilder();
-                int count=0;
-                for (String word : s.split(" ")) {
-                    //Log.i("word",word);
-                    if (word.equals("￼")){
-                        builder.append(myempjelist.get(count));
-                        count++;
-                    }else {
-
-                        builder.append(word);
-                        builder.append(" ");
-                    }
-                }
-
 
                 if (type.equals("text")){
 
                     if (s.length()>0){
 
-                        sharePost(builder.toString().replace("\n","<br/>"));
+                        sharePost(s);
                     }
 
                 }else if (type.equals("image")){
-                    sharePost(builder.toString().replace("\n","<br/>"));
+                    sharePost(s);
                 }
             }
         });
 
-        // recycler emoji
-        arrayList=new ArrayList<>();
-        recyclerView=(RecyclerView)findViewById(R.id.recycler_emoji);
-        manager=new GridLayoutManager(this,8);
-        adapter=new EmojiAdapter(arrayList, this, new OnPress() {
-            @Override
-            public void onClick(View view, int position) {
 
-                editText.append(" ");
-
-                editText.append(Html.fromHtml(arrayList.get(position).getCompUrl(), new URLImageParser(editText, WritePostActivity.this), new Html.TagHandler() {
-                    @Override
-                    public void handleTag(boolean b, String s, Editable editable, XMLReader xmlReader) {
-
-                     }
-                }));
-                editText.append(" ");
-
-                myempjelist.add(arrayList.get(position).getCompUrl());
-
-            }
-        });
-        recyclerView.setLayoutManager(manager);
-        recyclerView.addItemDecoration(new SpaceRecycler_V(MySizes.gethight(this)/90));
-        recyclerView.setAdapter(adapter);
 
 
         // image view
@@ -222,7 +169,7 @@ public class WritePostActivity extends AppCompatActivity {
             }
         });
 
-        loadEmoji();
+
     }
 
 
@@ -349,43 +296,6 @@ public class WritePostActivity extends AppCompatActivity {
 
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
-
-    }
-
-    private void loadEmoji(){
-        String url=domain+"api/emoji";
-        StringRequest request=new MyRequest(token, 1, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-
-                try {
-                    JSONObject object=new JSONObject(response);
-                    JSONArray array=object.getJSONArray("success");
-                    for (int i= 0; i<100;i++){
-                       String s=array.getString(i);
-                       String [] sp=s.split("src=");
-                       String ur=sp[1].replace("/>", "");
-                       String myurl=ur.replace("\"","");
-
-                       EmojiModel model=new EmojiModel();
-                       model.setCompUrl(s);
-                       model.setUrl(myurl);
-                       arrayList.add(model);
-                       adapter.notifyDataSetChanged();
-
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        },new OnErrorRequest(WritePostActivity.this, new ErrorCall() {
-            @Override
-            public void OnBack() {
-
-            }
-        }));
-        Myvollysinglton.getInstance(this).addtorequst(request);
 
     }
 

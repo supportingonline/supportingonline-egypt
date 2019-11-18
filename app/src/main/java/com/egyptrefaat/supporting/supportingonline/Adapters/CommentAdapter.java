@@ -47,8 +47,10 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentH
     @Override
     public void onBindViewHolder(@NonNull CommentHolder holder, int position) {
 
+        CommentModel model=arrayList.get(position);
+
         // image
-        Glide.with(context).load(arrayList.get(position).getImage()).error(context.getResources().getDrawable(R.drawable.ic_user_profile))
+        Glide.with(context).load(model.getImage()).error(context.getResources().getDrawable(R.drawable.ic_user_profile))
                 .into(holder.imageView);
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,7 +60,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentH
         });
 
         //name
-        holder.name.setText(arrayList.get(position).getUser_name());
+        holder.name.setText(model.getUser_name());
         holder.name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,15 +69,10 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentH
         });
 
         //date
-        holder.date.setText(arrayList.get(position).getDate());
+        holder.date.setText(model.getDate());
 
         // text
-        holder.text.setText(Html.fromHtml(arrayList.get(position).getDetails().trim(), new URLImageParser(holder.text, context), new Html.TagHandler() {
-            @Override
-            public void handleTag(boolean b, String s, Editable editable, XMLReader xmlReader) {
-
-            }
-        }));
+        holder.text.setText(Html.fromHtml(model.getDetails()));
 
     }
 

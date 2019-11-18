@@ -3,9 +3,7 @@ package com.egyptrefaat.supporting.supportingonline.Adapters;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
-import android.os.Handler;
 import android.text.Html;
-import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +18,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.egyptrefaat.supporting.supportingonline.Calls.OnPress;
-import com.egyptrefaat.supporting.supportingonline.Custom.URLImageParser;
 import com.egyptrefaat.supporting.supportingonline.Models.PostModel;
 import com.egyptrefaat.supporting.supportingonline.R;
 
@@ -60,18 +57,17 @@ public class PostAdapter  extends RecyclerView.Adapter<PostAdapter.PostHolder> {
     @Override
     public void onBindViewHolder(@NonNull final PostHolder holder, final int position) {
 
-        // animation
-        Handler handler=new Handler();
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                //setAnimation(holder.wow,position);
-            }
-        });
+
+        // Model
+        PostModel model=arrayList.get(position);
+
+        //type
+        String type=model.getType();
+
 
 
         // im profile
-        Glide.with(context).load(arrayList.get(position).getIm_profile()).error(context.getResources().getDrawable(R.drawable.ic_user_profile))
+        Glide.with(context).load(model.getIm_profile()).error(context.getResources().getDrawable(R.drawable.ic_user_profile))
                 .into(holder.im_profileImage);
         holder.im_profileImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,33 +77,22 @@ public class PostAdapter  extends RecyclerView.Adapter<PostAdapter.PostHolder> {
         });
 
         // name
-        holder.name.setText(arrayList.get(position).getName());
+        holder.name.setText(model.getName());
 
         // date
-        holder.date.setText(arrayList.get(position).getDate());
+        holder.date.setText(model.getDate());
 
         // text
-        if (arrayList.get(position).getText().equals("null")){
+        if (model.getText().equals("null")){
             holder.text.setVisibility(View.GONE);
         }else {
 
+            holder.text.setText(Html.fromHtml(model.getText()));
 
-            URLImageParser p = new URLImageParser(holder.text, context);
-            Spanned htmlSpan = Html.fromHtml(arrayList.get(position).getText()
-                    , p, null);
-            holder.text.setText(htmlSpan);
-           /* holder.text.setText(Html.fromHtml(arrayList.get(position).getText().trim(), new URLImageParser(holder.text, context), new Html.TagHandler() {
-                @Override
-                public void handleTag(boolean b, String s, Editable editable, XMLReader xmlReader) {
-
-                }
-            }));*/
 
         }
 
-        // type
-        //type
-        String type=arrayList.get(position).getType();
+
 
 
         if ( type.equals("text")){
@@ -118,7 +103,7 @@ public class PostAdapter  extends RecyclerView.Adapter<PostAdapter.PostHolder> {
             holder.imageView.setVisibility(View.VISIBLE);
             Glide.with(context)
                     .load(context.getResources().getString(R.string.domain)
-                            +"imgs/posts/"+arrayList.get(position).getImage())
+                            +"imgs/posts/"+model.getImage())
                     .fitCenter()
                     .into(holder.imageView);
             holder.imageView.setOnClickListener(new View.OnClickListener() {
@@ -135,10 +120,10 @@ public class PostAdapter  extends RecyclerView.Adapter<PostAdapter.PostHolder> {
 
 
         // comment count
-        holder.comment_count.setText(arrayList.get(position).getCount_comment()+" " +context.getResources().getString(R.string.comment));
+        holder.comment_count.setText(model.getCount_comment()+" " +context.getResources().getString(R.string.comment));
 
         // wow count
-        String countWow=arrayList.get(position).getCount_wow();
+        String countWow=model.getCount_wow();
         holder.wow_count.setText(countWow+ " ");
 
         // share
@@ -168,11 +153,10 @@ public class PostAdapter  extends RecyclerView.Adapter<PostAdapter.PostHolder> {
 
 
         // is wowed
-        if (arrayList.get(position).isIs_wowed()){
+        if (model.isIs_wowed()){
             holder.wow_image.setColorFilter(ContextCompat.getColor(context, R.color.colorPrimary), android.graphics.PorterDuff.Mode.SRC_IN);
 
         }
-
 
 
 

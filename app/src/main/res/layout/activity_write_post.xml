@@ -59,14 +59,14 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_60sdp"
         android:hint="@string/write_post"
-        android:fontFamily="@font/flor"
         android:padding="@dimen/_5sdp"
         android:background="@drawable/rectangle_stroke_edite"
         android:transitionName="trans"
         android:textAlignment="viewStart"
         android:layoutDirection="ltr"
         android:maxLines="3"
-        android:imeOptions="flagNoExtractUi"
+        android:inputType="textShortMessage|textAutoCorrect|textCapSentences|textMultiLine"
+        android:imeOptions="actionSend|flagNoEnterAction"
         />
 
     <LinearLayout
@@ -83,28 +83,8 @@
             android:layout_height="@dimen/_17sdp"
             android:src="@drawable/ic_gallery"
             />
-        <ImageView
-            android:id="@+id/write_emoji"
-            android:layout_width="@dimen/_17sdp"
-            android:layout_height="@dimen/_17sdp"
-            android:src="@drawable/ic_emoji"
-            android:layout_marginLeft="@dimen/_20sdp"
-            />
     </LinearLayout>
-        <com.github.aakira.expandablelayout.ExpandableRelativeLayout
-            android:id="@+id/write_exp"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_200sdp"
-            android:background="@color/white"
-            android:padding="@dimen/_5sdp"
-            >
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_emoji"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:nestedScrollingEnabled="false"
-                />
-        </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
+
 
     <Button
         android:id="@+id/write_btnshare"
