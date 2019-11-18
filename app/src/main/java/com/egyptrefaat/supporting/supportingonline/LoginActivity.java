@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -78,6 +80,11 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // remove title
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         // twitter
      /*   TwitterConfig config = new TwitterConfig.Builder(this)
                 .logger(new DefaultLogger(Log.DEBUG))
@@ -111,6 +118,7 @@ public class LoginActivity extends AppCompatActivity {
         signInButton.setSize(SignInButton.SIZE_STANDARD);
         TextView textView = (TextView) signInButton.getChildAt(0);
         textView.setText(getResources().getString(R.string.signin_google));
+        textView.setTextColor(getResources().getColor(R.color.black));
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 

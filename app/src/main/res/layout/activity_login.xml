@@ -6,10 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
-    android:background="@color/blue"
+
     >
 
     <LinearLayout
+        android:layout_marginTop="@dimen/_30sdp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -35,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/title"
-            android:textColor="@color/white"
+            android:textColor="@color/colorPrimary"
             android:layout_gravity="center"
             android:fontFamily="@font/lato"
             android:textSize="@dimen/_15sdp"
@@ -54,6 +55,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_10sdp"
+
             />
 
      <!--   <com.facebook.login.widget.LoginButton
