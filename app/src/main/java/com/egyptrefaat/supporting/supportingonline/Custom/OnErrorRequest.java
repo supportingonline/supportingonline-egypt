@@ -7,6 +7,7 @@ import android.widget.Toast;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.egyptrefaat.supporting.supportingonline.Calls.ErrorCall;
+import com.egyptrefaat.supporting.supportingonline.Calls.ErrorNetwork;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -17,10 +18,16 @@ public class OnErrorRequest implements Response.ErrorListener {
 
     private Context context;
     private ErrorCall errorCall;
+    private ErrorNetwork errorNetwork;
 
     public OnErrorRequest(Context context, ErrorCall errorCall) {
         this.context = context;
         this.errorCall=errorCall;
+    }
+    public OnErrorRequest(Context context, ErrorCall errorCall,ErrorNetwork errorNetwork) {
+        this.context = context;
+        this.errorCall=errorCall;
+        this.errorNetwork=errorNetwork;
     }
 
     @Override
@@ -52,6 +59,7 @@ public class OnErrorRequest implements Response.ErrorListener {
                 e.printStackTrace();
             }
         }else {
+            errorNetwork.onBack();
             Toast.makeText(context, "Connection Error", Toast.LENGTH_SHORT).show();
         }
 

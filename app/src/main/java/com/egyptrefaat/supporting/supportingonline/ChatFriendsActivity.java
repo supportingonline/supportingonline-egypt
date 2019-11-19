@@ -18,6 +18,7 @@ import com.egyptrefaat.supporting.supportingonline.Adapters.ChatHistoryAdapter;
 import com.egyptrefaat.supporting.supportingonline.Calls.ErrorCall;
 import com.egyptrefaat.supporting.supportingonline.Calls.OnPress;
 import com.egyptrefaat.supporting.supportingonline.Custom.MyRequest;
+import com.egyptrefaat.supporting.supportingonline.Custom.MySharedPref;
 import com.egyptrefaat.supporting.supportingonline.Custom.Myvollysinglton;
 import com.egyptrefaat.supporting.supportingonline.Custom.OnErrorRequest;
 import com.egyptrefaat.supporting.supportingonline.Models.ChatHistroyModel;
@@ -39,11 +40,16 @@ public class ChatFriendsActivity extends AppCompatActivity {
     private TextView textNoData;
     private ProgressBar progressBar;
 
+    private String domain,token;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_friends);
+
+        domain=getResources().getString(R.string.domain);
+        token= MySharedPref.getdata(this,"token");
 
         // no data
         textNoData=(TextView)findViewById(R.id.chatfriends_nodata);
@@ -78,8 +84,8 @@ public class ChatFriendsActivity extends AppCompatActivity {
 
     private void loadchatHistory() {
         progressBar.setVisibility(View.VISIBLE);
-        String url= HomeActivity.domain+"api/messages";
-        StringRequest request=new MyRequest(HomeActivity.token, 1, url, new Response.Listener<String>() {
+        String url= domain+"api/messages";
+        StringRequest request=new MyRequest(token, 1, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.i("messages",response);
@@ -148,6 +154,7 @@ public class ChatFriendsActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+
         overridePendingTransition(R.anim.slide_from_righ, R.anim.slide_to_left);
 
     }

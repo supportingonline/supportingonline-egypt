@@ -244,6 +244,7 @@ public class SupportingMainFragment extends Fragment {
         }
 
 
+        adapter.notifyDataSetChanged();
 
 
 

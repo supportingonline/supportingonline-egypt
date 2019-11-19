@@ -41,6 +41,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import hani.momanii.supernova_emoji_library.Actions.EmojIconActions;
+import hani.momanii.supernova_emoji_library.Helper.EmojiconEditText;
 
 public class FriendChatActivity extends AppCompatActivity {
 
@@ -51,7 +53,7 @@ public class FriendChatActivity extends AppCompatActivity {
     private ArrayList<ChatModel> arrayList;
     private ChatAdapter adapter;
     
-    private EditText editText;
+
     private RelativeLayout layoutchat;
     
     private ImageView backImage;
@@ -59,6 +61,11 @@ public class FriendChatActivity extends AppCompatActivity {
     private TextView textView;
 
     private Socket mSocket;
+
+    EmojiconEditText emojiconEditText;
+    ImageView emojiButton;
+    View rootView;
+    EmojIconActions emojIcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,12 +117,33 @@ public class FriendChatActivity extends AppCompatActivity {
         
         
         // edit text and layout
-        editText=(EditText)findViewById(R.id.friend_chat_edit);
+
         layoutchat=(RelativeLayout)findViewById(R.id.friend_chat_layout);
         
         layoutchat.setClickable(false);
+
+        rootView = findViewById(R.id.root_view3);
+        emojiButton = (ImageView) findViewById(R.id.emoji_btn3);
+        // submitButton = (ImageView) findViewById(R.id.submit_btn);
+        //  mCheckBox = (CheckBox) findViewById(R.id.use_system_default);
+        emojiconEditText = (EmojiconEditText) findViewById(R.id.emojicon_edit_text3);
+        // emojiconEditText2 = (EmojiconEditText) findViewById(R.id.emojicon_edit_text2);
+        // textView = (EmojiconTextView) findViewById(R.id.textView);
+        emojIcon = new EmojIconActions(this, rootView, emojiconEditText, emojiButton);
+        emojIcon.ShowEmojIcon();
+        emojIcon.setKeyboardListener(new EmojIconActions.KeyboardListener() {
+            @Override
+            public void onKeyboardOpen() {
+                Log.e("Keyboard", "open");
+            }
+
+            @Override
+            public void onKeyboardClose() {
+                Log.e("Keyboard", "close");
+            }
+        });
         
-        editText.addTextChangedListener(new TextWatcher() {
+        emojiconEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 
@@ -142,9 +170,9 @@ public class FriendChatActivity extends AppCompatActivity {
         layoutchat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String message=editText.getText().toString().trim();
+                String message=emojiconEditText.getText().toString().trim();
                 sendMessage(message);
-                editText.setText("");
+                emojiconEditText.setText("");
                 layoutchat.setAlpha(0.5f);
                 layoutchat.setClickable(false);
                 recyclerView.scrollToPosition(arrayList.size()-1);

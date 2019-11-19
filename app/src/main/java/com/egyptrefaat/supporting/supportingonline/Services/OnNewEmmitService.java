@@ -5,6 +5,7 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
@@ -131,7 +132,7 @@ public class OnNewEmmitService extends Service {
 
                                         //  Toast.makeText(OnNewEmmitService.this.getApplicationContext(),"emmit",Toast.LENGTH_SHORT).show();
                                         NotificationMessage.onNewMessage(OnNewEmmitService.this.getApplicationContext(),
-                                                name, msg, fromId, image);
+                                                name, msg, fromId, image,true);
                                     }
                                 }
                             });
@@ -156,7 +157,29 @@ public class OnNewEmmitService extends Service {
                 String thegroupid = data.getString("group_id");
                 String theuserId = data.getString("user_id");
 
-            }else if (theType.equals("friend")){
+            }else if (theType.equals("accept_friend")){
+                String toId=data.getString("to");
+               // String fromId=data.getString("from");
+                String image=data.getString("img");
+                String name=data.getString("name");
+                if (toId.equals(MySharedPref.getdata(OnNewEmmitService.this.getApplicationContext(),"id"))){
+                    Handler handler = new Handler(Looper.getMainLooper());
+                    handler.post(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            NotificationMessage.onNewMessage(OnNewEmmitService.this.getApplicationContext(),
+                                   name+" "+ OnNewEmmitService.this.getApplicationContext().getResources().getString(R.string.hasaccept)
+                                    , "", "1", image,false);
+
+                        }
+                    });
+
+
+                }
+            }
+
+            else if (theType.equals("friend")){
                 String status=data.getString("status");
                 String toId=data.getString("to");
                 String fromId=data.getString("from");
@@ -170,7 +193,7 @@ public class OnNewEmmitService extends Service {
                         public void run() {
                             NotificationMessage.onNewMessage(OnNewEmmitService.this.getApplicationContext(),
                                     OnNewEmmitService.this.getApplicationContext().getResources().getString(R.string.friendrequset)
-                                    , name, fromId, image);
+                                    , name, fromId, image,false);
 
                         }
                     });
@@ -178,6 +201,8 @@ public class OnNewEmmitService extends Service {
 
                 }
             }
+
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -193,7 +218,9 @@ public class OnNewEmmitService extends Service {
     @Override
     public void onTaskRemoved(Intent rootIntent) {
         Intent restartServiceIntent = new Intent(getApplicationContext(), this.getClass());
-        restartServiceIntent.setPackage(getPackageName());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.DONUT) {
+            restartServiceIntent.setPackage(getPackageName());
+        }
 
         PendingIntent restartServicePendingIntent =
                 PendingIntent.getService(getApplicationContext(), 1, restartServiceIntent, PendingIntent.FLAG_ONE_SHOT);

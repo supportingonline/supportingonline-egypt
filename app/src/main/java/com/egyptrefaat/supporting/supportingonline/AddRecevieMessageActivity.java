@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -23,6 +24,8 @@ import com.egyptrefaat.supporting.supportingonline.Custom.MySharedPref;
 import com.egyptrefaat.supporting.supportingonline.Custom.Myvollysinglton;
 import com.egyptrefaat.supporting.supportingonline.Custom.OnErrorRequest;
 import com.egyptrefaat.supporting.supportingonline.Value.Image;
+import com.github.nkzawa.socketio.client.IO;
+import com.github.nkzawa.socketio.client.Socket;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
@@ -31,6 +34,7 @@ import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -40,9 +44,11 @@ public class AddRecevieMessageActivity extends AppCompatActivity {
     private Button btn_upload,btn_send;
     private boolean isUploaded;
     private Bitmap bitmap;
-    private String id,type,date;
+    private String id,type,date,groupIdUpdate;
     private int position,countUser;
     private ProgressDialog progressDialog;
+
+    private Socket mSocket;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +57,7 @@ public class AddRecevieMessageActivity extends AppCompatActivity {
 
         //id
         id=getIntent().getStringExtra("id");
+        groupIdUpdate=getIntent().getStringExtra("group_update");
         countUser=getIntent().getIntExtra("count_user",0);
         position=getIntent().getIntExtra("position",0);
         type=getIntent().getStringExtra("type");
@@ -88,6 +95,16 @@ public class AddRecevieMessageActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void socketReady() {
+        try {
+            mSocket = IO.socket(getResources().getString(R.string.socket));
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+        mSocket.connect();
+
     }
 
     @Override
@@ -139,6 +156,7 @@ public class AddRecevieMessageActivity extends AppCompatActivity {
                 try {
                     JSONObject object=new JSONObject(response);
                     if (object.has("success")){
+                        sendsocketEmmit();
                         startActivity(new Intent(AddRecevieMessageActivity.this,GroupContentActivity.class)
                         .putExtra("id",id).putExtra("date",date)
                                 .putExtra("type",type)
@@ -173,6 +191,23 @@ public class AddRecevieMessageActivity extends AppCompatActivity {
         };
         Myvollysinglton.getInstance(this).addtorequst(request);
 
+    }
+
+    private void sendsocketEmmit() {
+
+        JSONObject object=new JSONObject();
+        try {
+            object.put("type","group");
+            object.put("group_id",groupIdUpdate);
+            object.put("device","nagy");
+            object.put("user_id",id);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Log.i("send",object.toString());
+
+        mSocket.emit("supportingonline",object);
     }
 
     @Override

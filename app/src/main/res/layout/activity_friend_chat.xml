@@ -7,6 +7,8 @@
     android:layout_height="match_parent"
     tools:context=".FriendChatActivity"
     android:orientation="vertical"
+    android:id="@+id/root_view3"
+    xmlns:emojicon="http://schemas.android.com/apk/res-auto"
     >
 
     <LinearLayout
@@ -59,29 +61,40 @@
         android:layoutDirection="ltr"
         android:weightSum="3"
         >
-        <EditText
-            android:id="@+id/friend_chat_edit"
+        <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="@dimen/_30sdp"
-            android:layout_weight="2.6"
-            android:background="@drawable/rectangle_stroke_edite"
-            android:layout_gravity="center"
-            android:hint="@string/your_message"
-            android:fontFamily="@font/flor"
-            android:padding="@dimen/_4sdp"
-            android:textSize="@dimen/_10sdp"
-            android:imeOptions="flagNoExtractUi"
-            />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layoutDirection="ltr"
+            android:layout_weight="2.5"
+            >
+            <ImageView
+                android:id="@+id/emoji_btn3"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_insert_emoticon"
+                android:tint="@android:color/darker_gray"
+                android:padding="4dp"
+                />
+            <hani.momanii.supernova_emoji_library.Helper.EmojiconEditText
+                android:id="@+id/emojicon_edit_text3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="flagNoExtractUi"
+                android:inputType="textMultiLine"
+                emojicon:emojiconSize="28sp"/>
+        </LinearLayout>
 
         <RelativeLayout
             android:id="@+id/friend_chat_layout"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:layout_weight="0.4"
+            android:layout_weight="0.5"
             android:background="@drawable/rectangle2"
+            android:backgroundTint="@color/blue"
             android:layout_gravity="center"
             android:alpha="0.5"
-
+            android:layout_margin="@dimen/_3sdp"
 
             >
             <ImageView
@@ -94,6 +107,7 @@
 
                 />
         </RelativeLayout>
+
 
 
 

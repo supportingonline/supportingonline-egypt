@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
@@ -37,10 +39,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import hani.momanii.supernova_emoji_library.Actions.EmojIconActions;
+import hani.momanii.supernova_emoji_library.Helper.EmojiconEditText;
+
 public class CommentActivity extends AppCompatActivity {
 
     private String post_id,domain,token,nextPage;
-    private EditText editText;
+
     private RelativeLayout sendlayout;
 
     private RecyclerView recyclerView;
@@ -49,6 +54,11 @@ public class CommentActivity extends AppCompatActivity {
     private CommentAdapter adapter;
     private boolean isTimline;
     private int position;
+
+    EmojiconEditText emojiconEditText;
+    ImageView emojiButton;
+    View rootView;
+    EmojIconActions emojIcon;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,13 +73,32 @@ public class CommentActivity extends AppCompatActivity {
         isTimline=getIntent().getBooleanExtra("is_timeline",false);
         position=getIntent().getIntExtra("position",0);
 
-        // send layout and edit
-        editText=(EditText)findViewById(R.id.comment_edit);
+
         sendlayout=(RelativeLayout)findViewById(R.id.comment_layout);
         sendlayout.setClickable(false);
 
+        rootView = findViewById(R.id.root_view2);
+        emojiButton = (ImageView) findViewById(R.id.emoji_btn2);
+        // submitButton = (ImageView) findViewById(R.id.submit_btn);
+        //  mCheckBox = (CheckBox) findViewById(R.id.use_system_default);
+        emojiconEditText = (EmojiconEditText) findViewById(R.id.emojicon_edit_text2);
+        // emojiconEditText2 = (EmojiconEditText) findViewById(R.id.emojicon_edit_text2);
+        // textView = (EmojiconTextView) findViewById(R.id.textView);
+        emojIcon = new EmojIconActions(this, rootView, emojiconEditText, emojiButton);
+        emojIcon.ShowEmojIcon();
+        emojIcon.setKeyboardListener(new EmojIconActions.KeyboardListener() {
+            @Override
+            public void onKeyboardOpen() {
+                Log.e("Keyboard", "open");
+            }
 
-        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onKeyboardClose() {
+                Log.e("Keyboard", "close");
+            }
+        });
+
+        emojiconEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -97,8 +126,8 @@ public class CommentActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String text=editText.getText().toString().trim();
-                editText.setText("");
+                String text=emojiconEditText.getText().toString().trim();
+                emojiconEditText.setText("");
                 sendlayout.setAlpha(0.5f);
 
                 if (text.trim().length()>0) {

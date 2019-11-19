@@ -28,6 +28,8 @@ import androidx.core.app.NotificationManagerCompat;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
+import com.egyptrefaat.supporting.supportingonline.ChatFriendsActivity;
+import com.egyptrefaat.supporting.supportingonline.HomeActivity;
 import com.egyptrefaat.supporting.supportingonline.MainActivity;
 import com.egyptrefaat.supporting.supportingonline.R;
 import com.egyptrefaat.supporting.supportingonline.Services.RestartMyService;
@@ -35,7 +37,7 @@ import com.egyptrefaat.supporting.supportingonline.Services.RestartMyService;
 public class NotificationMessage {
 
 
-    public static void onNewMessage(Context context, String title, String details, String id, String image) {
+    public static void onNewMessage(Context context, String title, String details, String id, String image,boolean ismessage) {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             CharSequence name = "name";
@@ -63,16 +65,29 @@ public class NotificationMessage {
 
 
         // start intent
+        if (ismessage){
+            Intent notifyIntent = new Intent(context.getApplicationContext(), ChatFriendsActivity.class);
+            notifyIntent.putExtra("chat_user_id",id);
+            notifyIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            PendingIntent notifyPendingIntent = PendingIntent.getActivity(
+                    context.getApplicationContext(), 0, notifyIntent, 0
+            );
 
-        Intent notifyIntent = new Intent(context.getApplicationContext(), MainActivity.class);
-        notifyIntent.putExtra("chat_user_id",id);
-        notifyIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        PendingIntent notifyPendingIntent = PendingIntent.getActivity(
-                context.getApplicationContext(), 0, notifyIntent, 0
-        );
+            mBuilder.setContentIntent(notifyPendingIntent);
+            mBuilder.setAutoCancel(true);
+        }else {
+            Intent notifyIntent = new Intent(context.getApplicationContext(), HomeActivity.class);
+            notifyIntent.putExtra("chat_user_id",id);
+            notifyIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            PendingIntent notifyPendingIntent = PendingIntent.getActivity(
+                    context.getApplicationContext(), 0, notifyIntent, 0
+            );
 
-        mBuilder.setContentIntent(notifyPendingIntent);
-        mBuilder.setAutoCancel(true);
+            mBuilder.setContentIntent(notifyPendingIntent);
+            mBuilder.setAutoCancel(true);
+        }
+
+
 
       //  mBuilder.build().flags |= Notification.FLAG_AUTO_CANCEL;
 

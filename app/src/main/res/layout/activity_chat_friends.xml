@@ -18,7 +18,7 @@
         android:id="@+id/chatfriends_nodata"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/you_don_t_have_friend_yet"
+        android:text="@string/you_don_t_have_messages_yet"
         android:textAlignment="center"
         android:fontFamily="@font/flor"
         android:textColor="@color/black"/>

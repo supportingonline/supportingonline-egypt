@@ -9,6 +9,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 import com.egyptrefaat.supporting.supportingonline.Calls.ErrorCall;
+import com.egyptrefaat.supporting.supportingonline.Calls.ErrorNetwork;
 import com.egyptrefaat.supporting.supportingonline.Custom.MyLanguage;
 import com.egyptrefaat.supporting.supportingonline.Custom.MyRequest;
 import com.egyptrefaat.supporting.supportingonline.Custom.MySharedPref;
@@ -46,7 +47,10 @@ public class MainActivity extends AppCompatActivity {
 
             // domain
             domain=getResources().getString(R.string.domain);
-            login();
+
+          // startActivity(new Intent(this,NewActivity.class));
+
+          login();
         }
 
 
@@ -107,6 +111,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void OnBack() {
 
+
+            }
+        }, new ErrorNetwork() {
+            @Override
+            public void onBack() {
+                login();
             }
         }));
         Myvollysinglton.getInstance(this).addtorequst(request);

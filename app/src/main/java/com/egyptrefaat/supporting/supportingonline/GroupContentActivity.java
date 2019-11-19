@@ -147,7 +147,7 @@ public class GroupContentActivity extends AppCompatActivity  {
                 }else {
                     startActivity(new Intent(GroupContentActivity.this, AddRecevieMessageActivity.class)
                     .putExtra("id",id).putExtra("date",date)
-                            .putExtra("type",type)
+                            .putExtra("type",type).putExtra("group_update",groupIdUpdate)
                             .putExtra("position",position).putExtra("count_user",countUser));
                     overridePendingTransition(R.anim.slide_up, R.anim.fadout);
                     finish();
@@ -516,6 +516,10 @@ public class GroupContentActivity extends AppCompatActivity  {
                         }
                     }
 
+        if (arrayListLayer.get(0).getName().equals("System")){
+            btn_sendMoney.setVisibility(View.INVISIBLE);
+        }
+
     }
 
 
@@ -545,6 +549,7 @@ public class GroupContentActivity extends AppCompatActivity  {
             alarmtext.setTextColor(getResources().getColor(R.color.colorAccent));
             copytext.setVisibility(View.INVISIBLE);
         }
+
     }
 
     private void updateFirstTree(JSONArray treeArray) {

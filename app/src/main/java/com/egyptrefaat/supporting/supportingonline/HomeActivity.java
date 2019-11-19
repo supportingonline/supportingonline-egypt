@@ -313,6 +313,7 @@ public class HomeActivity extends AppCompatActivity {
                         startActivity(new Intent(HomeActivity.this,ChatFriendsActivity.class));
                         overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
 
+
                         break;
                     case 3:
 

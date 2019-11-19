@@ -16,6 +16,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -56,18 +57,24 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import hani.momanii.supernova_emoji_library.Actions.EmojIconActions;
+import hani.momanii.supernova_emoji_library.Helper.EmojiconEditText;
+import hani.momanii.supernova_emoji_library.Helper.EmojiconTextView;
+
 public class WritePostActivity extends AppCompatActivity {
 
     private ImageView imagecapture,imageview,cancelimage;
-    private EditText editText;
     private String type="text";
     private Bitmap bitmap;
     private RelativeLayout layoutimage;
     private Button button;
     private String domain,token;
     private ProgressDialog prog;
-    private EmojiAdapter adapter;
 
+    EmojiconEditText emojiconEditText;
+    ImageView emojiButton;
+    View rootView;
+    EmojIconActions emojIcon;
 
 
 
@@ -88,9 +95,33 @@ public class WritePostActivity extends AppCompatActivity {
         // btn share
         button=(Button)findViewById(R.id.write_btnshare);
 
-        // edit
-        editText=(EditText)findViewById(R.id.write_edit);
-        editText.addTextChangedListener(new TextWatcher() {
+
+
+        rootView = findViewById(R.id.root_view);
+        emojiButton = (ImageView) findViewById(R.id.emoji_btn);
+       // submitButton = (ImageView) findViewById(R.id.submit_btn);
+      //  mCheckBox = (CheckBox) findViewById(R.id.use_system_default);
+        emojiconEditText = (EmojiconEditText) findViewById(R.id.emojicon_edit_text);
+       // emojiconEditText2 = (EmojiconEditText) findViewById(R.id.emojicon_edit_text2);
+       // textView = (EmojiconTextView) findViewById(R.id.textView);
+        emojIcon = new EmojIconActions(this, rootView, emojiconEditText, emojiButton);
+        emojIcon.ShowEmojIcon();
+        emojIcon.setKeyboardListener(new EmojIconActions.KeyboardListener() {
+            @Override
+            public void onKeyboardOpen() {
+                Log.e("Keyboard", "open");
+            }
+
+            @Override
+            public void onKeyboardClose() {
+                Log.e("Keyboard", "close");
+            }
+        });
+
+
+
+
+        emojiconEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -128,7 +159,7 @@ public class WritePostActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String s=editText.getText().toString().trim();
+                String s=emojiconEditText.getText().toString().trim();
 
 
                 if (type.equals("text")){
@@ -257,7 +288,7 @@ public class WritePostActivity extends AppCompatActivity {
 
                 Map<String,String> map=new HashMap<>();
                 map.put("type",type);
-                map.put("text",s);
+                map.put("text",s.replace("\n","<br/>"));
                 if (type.equals("image")){
                     map.put("image", Image.imagetobinary(bitmap));
                 }
@@ -270,27 +301,7 @@ public class WritePostActivity extends AppCompatActivity {
 
 
 
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent event) {
-        if (event.getAction() == MotionEvent.ACTION_DOWN) {
-            View v = getCurrentFocus();
-            if (editText.isFocused() ) {
-                Rect outRect = new Rect();
-                editText.getGlobalVisibleRect(outRect);
 
-                if (!outRect.contains((int)event.getRawX(), (int)event.getRawY())) {
-                    editText.clearFocus();
-                    editText.clearFocus();
-
-                    //
-                    // Hide keyboard
-                    //
-                    hidekeyboadr(v);
-                }
-            }
-        }
-        return super.dispatchTouchEvent(event);
-    }
 
     public void hidekeyboadr(View v){
 

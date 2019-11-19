@@ -68,14 +68,14 @@ public class FriendsRequestFragment extends Fragment {
             @Override
             public void onClick(View view, int position) {
                 // accept
-                replyRequest("accept",arrayList.get(position).getId());
+                replyRequest("accept",arrayList.get(position).getId(),arrayList.get(position).getImage(),arrayList.get(position).getName());
                 setAnimation(recyclerView.getChildAt(position),position);
             }
         }, new OnPress() {
             @Override
             public void onClick(View view, int position) {
                 // cancel
-                replyRequest("deny",arrayList.get(position).getId());
+                replyRequest("deny",arrayList.get(position).getId(),arrayList.get(position).getImage(),arrayList.get(position).getName());
                 setAnimation(recyclerView.getChildAt(position),position);
             }
         }, new OnPress() {
@@ -197,12 +197,31 @@ public class FriendsRequestFragment extends Fragment {
         Myvollysinglton.getInstance(getActivity()).addtorequst(request);
     }
 
-    private void replyRequest(String type,String userId){
+    private void replyRequest(String type,String userId,String image,String name){
         String url= HomeActivity.domain+"api/friend_request";
         StringRequest request=new MyRequest(HomeActivity.token, 1, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                // Log.i("reply",response);
+
+                if (type.equals("accept")) {
+                    JSONObject object = new JSONObject();
+                    try {
+                        object.put("type", "accept_friend");
+                        object.put("to", userId);
+                        object.put("img", "image");
+                        object.put("name", name);
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    HomeActivity.sendsocketEmmit(object);
+                }
+
+
+
+
+
 
             }
         },new OnErrorRequest(getActivity(), new ErrorCall() {

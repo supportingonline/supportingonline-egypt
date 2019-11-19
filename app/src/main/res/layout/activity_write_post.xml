@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".WritePostActivity"
-
+    android:id="@+id/root_view"
+    xmlns:emojicon="http://schemas.android.com/apk/res-auto"
     android:padding="@dimen/_3sdp"
     >
     <ScrollView
@@ -22,6 +23,18 @@
         android:orientation="vertical"
         android:paddingVertical="@dimen/_5sdp"
         >
+
+        <Button
+            android:text="@string/share"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:fontFamily="@font/lato"
+            android:background="@drawable/rectangle_stroke_edite"
+          android:backgroundTint="@color/blue"
+            android:layout_gravity="right"
+            android:id="@+id/write_btnshare"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_30sdp"/>
 
         <RelativeLayout
             android:id="@+id/write_imagelayout"
@@ -53,23 +66,35 @@
 
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layoutDirection="ltr"
+            >
+            <ImageView
+                android:id="@+id/emoji_btn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_insert_emoticon"
+                android:tint="@android:color/darker_gray"
+                android:padding="4dp"
+                />
+            <hani.momanii.supernova_emoji_library.Helper.EmojiconEditText
+                android:id="@+id/emojicon_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="flagNoExtractUi"
+                android:inputType="textMultiLine"
+                emojicon:emojiconSize="28sp"/>
+        </LinearLayout>
 
-    <EditText
-        android:id="@+id/write_edit"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_60sdp"
-        android:hint="@string/write_post"
-        android:padding="@dimen/_5sdp"
-        android:background="@drawable/rectangle_stroke_edite"
-        android:transitionName="trans"
-        android:textAlignment="viewStart"
-        android:layoutDirection="ltr"
-        android:maxLines="3"
-        android:inputType="textShortMessage|textAutoCorrect|textCapSentences|textMultiLine"
-        android:imeOptions="actionSend|flagNoEnterAction"
-        />
+
+
+
 
     <LinearLayout
+        android:layout_marginTop="@dimen/_10sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -84,28 +109,6 @@
             android:src="@drawable/ic_gallery"
             />
     </LinearLayout>
-
-
-    <Button
-        android:id="@+id/write_btnshare"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/share"
-        android:textColor="@color/white"
-        android:textAllCaps="false"
-        android:fontFamily="@font/lato"
-        android:textSize="@dimen/_18sdp"
-        android:textAlignment="center"
-        android:paddingHorizontal="@dimen/_60sdp"
-        android:background="@drawable/rectangle1"
-        android:backgroundTint="@color/colorAccent"
-        android:drawableLeft="@drawable/ic_share"
-        android:drawableTint="@color/white"
-        android:layout_marginHorizontal="@dimen/_20sdp"
-        android:alpha="0.5"
-
-        />
 
     </LinearLayout>
     </ScrollView>

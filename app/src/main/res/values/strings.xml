@@ -77,10 +77,9 @@
 
 
     <string-array name="prices">
-        <item>25</item>
         <item>50</item>
-        <item>75</item>
         <item>100</item>
+        <item>200</item>
     </string-array>
 
     <string-array name="banks_name">
@@ -176,14 +175,20 @@ It also provides a service to organize financial support among users of the site
 
     </string>
     <string name="you_don_t_have_friend_yet">you don\'t have friends yet</string>
-    The site has no relation to the process of sending and receiving support payments permanently, since the role of the site is the process of organization only.
+    <string name="you_don_t_have_messages_yet">you don\'t have messages yet</string>
+    <string name="hasaccept">has accept your friend request</string>
+    The site has no relation to the process of sending and receiving support payments permanently,
+    since the role of the site is the process of organization only.
     Organizational process is our responsibility:
     From arranging and sending organized codes for it.
-    Giving the possibility to show pictures of the payment authorization to confirm the transmission.
+    Giving the possibility to show pictures of the payment authorization to confirm the
+    transmission.
     Giving the possibility of confirmation receipt of payment.
     Add to give the possibility of changing the user because of the seriousness of the second party.
-    As well as organizing the exit of the recipient of financial support from partnership with his friends and the entry of the next (who has the role) in each account.
-    In addition to ensuring the sending and receiving support amount for the form of friends at their own risk, and no income to the site in that, as the site does not deliver those funds.
+    As well as organizing the exit of the recipient of financial support from partnership with his
+    friends and the entry of the next (who has the role) in each account.
+    In addition to ensuring the sending and receiving support amount for the form of friends at
+    their own risk, and no income to the site in that, as the site does not deliver those funds.
 
     <string-array name="models_about">
         <item>•You get double the model’s price directly from the two supportive friends (first generation)\n

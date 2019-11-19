@@ -101,7 +101,11 @@ public class SearchActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                Myvollysinglton.cancel("search");
+                try {
+                    Myvollysinglton.cancel("search");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 arrayList.clear();
                 adapter.notifyDataSetChanged();
                 String ss=editText.getText().toString().trim();
