@@ -253,7 +253,7 @@ public class GroupContentActivity extends AppCompatActivity  {
 
 
     private void sendsocketEmmit() {
-        Toast.makeText(this, groupIdUpdate, Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, groupIdUpdate, Toast.LENGTH_SHORT).show();
         JSONObject object=new JSONObject();
         try {
             object.put("type","group");

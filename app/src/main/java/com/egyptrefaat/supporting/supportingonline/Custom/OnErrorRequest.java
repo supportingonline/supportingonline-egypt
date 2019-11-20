@@ -59,7 +59,14 @@ public class OnErrorRequest implements Response.ErrorListener {
                 e.printStackTrace();
             }
         }else {
-            errorNetwork.onBack();
+            errorCall.OnBack();
+            try {
+                if (errorNetwork!=null) {
+                    errorNetwork.onBack();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             Toast.makeText(context, "Connection Error", Toast.LENGTH_SHORT).show();
         }
 
