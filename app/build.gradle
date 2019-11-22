@@ -7,13 +7,14 @@ android {
         applicationId "com.egyptrefaat.supporting.supportingonline"
         minSdkVersion 22
         targetSdkVersion 29
-        versionCode 27
-        versionName "2.1.4"
+        versionCode 28
+        versionName "2.1.5"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }

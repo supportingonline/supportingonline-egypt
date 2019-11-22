@@ -819,8 +819,12 @@ public class GroupContentActivity extends AppCompatActivity  {
                     JSONObject object=new JSONObject(response);
                     if (object.has("success")){
                         SupportingFragment fragment=(SupportingFragment) HomeActivity.fragments.get(3);
-                        fragment.reloadData();
-                        fragment.reloadInfo();
+                        try {
+                            fragment.reloadData();
+                            fragment.reloadInfo();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                         onBackPressed();
                     }else if (object.has("error")){
                         Toast.makeText(GroupContentActivity.this, object.getString("error"), Toast.LENGTH_SHORT).show();

@@ -131,23 +131,36 @@ public class SupportingFragment extends Fragment implements BackFragment {
             three.setBackgroundColor(getResources().getColor(R.color.dark2));
             changefragment(new SupportingMainFragment());
             pos=0;
+            HomeActivity.groupshistory.clear();
             return true;
         }
     }
 
     public void reloadData(){
-        FragmentManager fm = getChildFragmentManager();
-        SupportingMainFragment fragm = (SupportingMainFragment) fm.findFragmentById(R.id.sup_container);
-        fragm.loadGroups();
+        try {
+            FragmentManager fm = getChildFragmentManager();
+            SupportingMainFragment fragm = (SupportingMainFragment) fm.findFragmentById(R.id.sup_container);
+            fragm.loadGroups();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     public void reloadWallet(){
-        FragmentManager fm = getChildFragmentManager();
-        SupportingMainFragment fragm = (SupportingMainFragment) fm.findFragmentById(R.id.sup_container);
-        fragm.refreshTextWallet();
+        try {
+            FragmentManager fm = getChildFragmentManager();
+            SupportingMainFragment fragm = (SupportingMainFragment) fm.findFragmentById(R.id.sup_container);
+            fragm.refreshTextWallet();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void reloadInfo(){
-        ((HomeActivity)getActivity()).updateUserInfo();
+        try {
+            ((HomeActivity)getActivity()).updateUserInfo();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
