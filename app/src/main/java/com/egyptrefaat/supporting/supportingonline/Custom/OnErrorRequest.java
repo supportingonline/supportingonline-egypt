@@ -32,7 +32,7 @@ public class OnErrorRequest implements Response.ErrorListener {
 
     @Override
     public void onErrorResponse(VolleyError error) {
-      //  Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+    //  Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
         errorCall.OnBack();
 
         if (error.networkResponse!=null) {
@@ -40,6 +40,7 @@ public class OnErrorRequest implements Response.ErrorListener {
                 String body = new String(error.networkResponse.data, StandardCharsets.UTF_8);
                 JSONObject object = new JSONObject(body);
 
+               // Toast.makeText(context, body, Toast.LENGTH_LONG).show();
                  Log.i("main_error",body);
                 if (object.has("message")) {
                     if (object.getString("message").equals("Unauthenticated.")){

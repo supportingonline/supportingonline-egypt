@@ -2,6 +2,8 @@ package com.egyptrefaat.supporting.supportingonline;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +15,7 @@ import com.egyptrefaat.supporting.supportingonline.Calls.ErrorNetwork;
 import com.egyptrefaat.supporting.supportingonline.Custom.MyLanguage;
 import com.egyptrefaat.supporting.supportingonline.Custom.MyRequest;
 import com.egyptrefaat.supporting.supportingonline.Custom.MySharedPref;
+import com.egyptrefaat.supporting.supportingonline.Custom.MyUtils;
 import com.egyptrefaat.supporting.supportingonline.Custom.Myvollysinglton;
 import com.egyptrefaat.supporting.supportingonline.Custom.OnErrorRequest;
 
@@ -62,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         StringRequest request=new MyRequest(token, Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-               // Log.i("login",response);
+             Log.i("login",response);
                 try {
                     JSONObject object = new JSONObject(response);
                     if (object.has("success")) {
@@ -101,6 +104,10 @@ public class MainActivity extends AppCompatActivity {
 
                         nextactivity(new Intent(MainActivity.this, HomeActivity.class));
 
+                    }else if (object.has("message") || object.has("error")){
+                        Toast.makeText(MainActivity.this, "Session Time Out", Toast.LENGTH_SHORT).show();
+                        MySharedPref.setdata(MainActivity.this, "token", "");
+                        MyUtils.logoutprovider(MainActivity.this);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
